@@ -28,6 +28,7 @@
 		9E17DC722A1BCBD500F059F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9E17DC762A1BE14100F059F6 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		9E17DC782A1BFD4300F059F6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9E17DC7A2A1D672200F059F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		9E8B06BC2A14F7CA00ADBA65 /* MCSynergy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCSynergy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E8B06BF2A14F7CA00ADBA65 /* MCSynergyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCSynergyApp.swift; sourceTree = "<group>"; };
 		9E8B06C32A14F7CB00ADBA65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 		9E8B06B32A14F7CA00ADBA65 = {
 			isa = PBXGroup;
 			children = (
+				9E17DC7A2A1D672200F059F6 /* .gitignore */,
 				9E8B06BE2A14F7CA00ADBA65 /* MCSynergy */,
 				9E8B06BD2A14F7CA00ADBA65 /* Products */,
 			);
