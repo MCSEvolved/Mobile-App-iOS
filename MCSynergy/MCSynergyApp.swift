@@ -38,12 +38,19 @@ struct MCSynergyApp: App {
                             Label("Home", systemImage: "house")
                         }
                         .preferredColorScheme(.dark)
+                    
+                    NotificationsView()
+                        .tabItem {
+                            Label("Notifications", systemImage: "bell.fill")
+                        }
+                        .preferredColorScheme(.dark)
 
                     SettingsView()
                         .tabItem {
                             Label("Settings", systemImage: "gear")
                         }
                         .preferredColorScheme(.dark)
+                        
                 }
             }
         }

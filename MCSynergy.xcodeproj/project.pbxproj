@@ -19,6 +19,8 @@
 		9E8B06D12A14F99400ADBA65 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9E8B06D02A14F99400ADBA65 /* FirebaseAnalytics */; };
 		9E8B06D32A14F99400ADBA65 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9E8B06D22A14F99400ADBA65 /* FirebaseAuth */; };
 		9E8B06D52A14F99400ADBA65 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 9E8B06D42A14F99400ADBA65 /* FirebaseMessaging */; };
+		9EAF59542A1F479800BB0CC4 /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAF59532A1F479800BB0CC4 /* NotificationSettings.swift */; };
+		9EAF59572A1F4FD900BB0CC4 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAF59562A1F4FD900BB0CC4 /* NotificationsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,9 @@
 		9E8B06C32A14F7CB00ADBA65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E8B06C62A14F7CB00ADBA65 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9E8B06CD2A14F82700ADBA65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9EAF59522A1E882D00BB0CC4 /* MCSynergy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCSynergy.entitlements; sourceTree = "<group>"; };
+		9EAF59532A1F479800BB0CC4 /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
+		9EAF59562A1F4FD900BB0CC4 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +58,7 @@
 		9E17DC652A1BB4F400F059F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9EAF59552A1F4FC100BB0CC4 /* Notifications */,
 				9E17DC6B2A1BB78800F059F6 /* Settings */,
 				9E17DC692A1BB52E00F059F6 /* Home */,
 				9E17DC682A1BB51F00F059F6 /* Login */,
@@ -96,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				9E17DC6C2A1BB83F00F059F6 /* SettingsView.swift */,
+				9EAF59532A1F479800BB0CC4 /* NotificationSettings.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -128,6 +135,7 @@
 		9E8B06BE2A14F7CA00ADBA65 /* MCSynergy */ = {
 			isa = PBXGroup;
 			children = (
+				9EAF59522A1E882D00BB0CC4 /* MCSynergy.entitlements */,
 				9E17DC722A1BCBD500F059F6 /* Info.plist */,
 				9E17DC672A1BB50100F059F6 /* Data */,
 				9E17DC662A1BB4FC00F059F6 /* Domain */,
@@ -146,6 +154,14 @@
 				9E8B06C62A14F7CB00ADBA65 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9EAF59552A1F4FC100BB0CC4 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				9EAF59562A1F4FD900BB0CC4 /* NotificationsView.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,10 +245,12 @@
 			files = (
 				9E17DC6F2A1BB84900F059F6 /* HomeView.swift in Sources */,
 				9E8B06C02A14F7CA00ADBA65 /* MCSynergyApp.swift in Sources */,
+				9EAF59542A1F479800BB0CC4 /* NotificationSettings.swift in Sources */,
 				9E17DC792A1BFD4300F059F6 /* LoginViewModel.swift in Sources */,
 				9E17DC772A1BE14100F059F6 /* AuthService.swift in Sources */,
 				9E17DC712A1BB85300F059F6 /* LoginView.swift in Sources */,
 				9E17DC6D2A1BB83F00F059F6 /* SettingsView.swift in Sources */,
+				9EAF59572A1F4FD900BB0CC4 /* NotificationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MCSynergy/MCSynergy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MCSynergy/Preview Content\"";
@@ -365,6 +384,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCSynergy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MCSynergy;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -389,6 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MCSynergy/MCSynergy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MCSynergy/Preview Content\"";
@@ -396,6 +418,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MCSynergy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MCSynergy;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
