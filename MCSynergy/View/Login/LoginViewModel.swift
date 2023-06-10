@@ -24,7 +24,16 @@ class LoginViewModel: ObservableObject {
                 self.loading = false
             }
         }
-        
-        
+    }
+    
+    func signInAsAnonymous() {
+        DispatchQueue.main.async {
+            self.loading = true
+        }
+        authService.signInAsAnonymous() { success in
+            DispatchQueue.main.async {
+                self.loading = false
+            }
+        }
     }
 }

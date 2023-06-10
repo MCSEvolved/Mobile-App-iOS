@@ -10,16 +10,22 @@ import Firebase
 
 struct SettingsView: View {
     private let auth = Auth.auth()
+    private let authService: AuthService
+    private let notificationService: NotificationService
     @State var handle: AuthStateDidChangeListenerHandle?
-    
+    @State var enabled: Bool = false
     var currentUser: User?
     
-    init() {
+    init(_authService: AuthService, _notificationService: NotificationService) {
+        self.notificationService = _notificationService
+        self.authService = _authService
         if (auth.currentUser != nil) {
             currentUser = auth.currentUser
         } else {
             //isLoggedIn = false
         }
+        
+        
     }
     
     
@@ -27,10 +33,13 @@ struct SettingsView: View {
         NavigationStack {
             VStack() {
                 List {
-                    ProfileModule(currentUser: currentUser)
+                    ProfileModule(currentUser: currentUser, authService: authService)
+                        .listRowBackground(Color("SecondaryBackgroundColor"))
                     Section() {
+                        
+                        
                         NavigationLink{
-                            NotificationSettings()
+                            NotificationSettings(notificationService: notificationService)
                         } label: {
                             Label {
                                 Text("Notifications")
@@ -41,35 +50,48 @@ struct SettingsView: View {
                                     .overlay(
                                         Image(systemName: "bell.badge.fill")
                                             .foregroundColor(.white)
-                                            .font(.title3)
+                                            .font(.subheadline)
                                     )
                                     .cornerRadius(10)
                             }
                                 
+                        }.listRowBackground(Color("SecondaryBackgroundColor"))
+                        
+                        
+                        
+                        Toggle(isOn: $enabled) {
+                            Label {
+                                Text("Monthly Newsletter")
+                            } icon: {
+                                Rectangle()
+                                    .fill(.blue)
+                                    .frame(width: 30, height: 30, alignment: .center)
+                                    .overlay(
+                                        Image(systemName: "envelope.fill")
+                                            .foregroundColor(.white)
+                                            .font(.subheadline)
+                                    )
+                                    .cornerRadius(10)
+                            }
                         }
+                        .listRowBackground(Color("SecondaryBackgroundColor"))
+                        .disabled(true)
                     }
                 }
-                Spacer()
+                .background(Color("PrimaryBackgroundColor"))
+                .scrollContentBackground(.hidden)
             }
-            .frame(minWidth: 0, maxWidth: .infinity)
             .background(Color("PrimaryBackgroundColor"))
             .navigationTitle("Settings")
-            .onAppear {
-                handle = Auth.auth().addStateDidChangeListener { auth, user in
-                    //isLoggedIn = authService.isLoggedIn()
-                    
-                }
-            }
-            .onDisappear {
-                Auth.auth().removeStateDidChangeListener(handle!)
-            }
         }
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .background(Color("PrimaryBackgroundColor"))
     }
 }
 
 struct ProfileModule: View {
     let currentUser: User?
-    
+    let authService: AuthService
     var body: some View {
         HStack {
             AsyncImage(url: currentUser?.photoURL) { image in image
@@ -79,8 +101,8 @@ struct ProfileModule: View {
                 
             } placeholder: {
                 ZStack {
-                    Rectangle().fill(Color("SecondaryBackgroundColor"))
-                    Label("Profile Pic Placeholrder", systemImage: "person.fill")
+                    Rectangle().fill(Color("PrimaryBackgroundColor"))
+                    Label("Profile Pic Placeholder", systemImage: "person.fill")
                         .labelStyle(.iconOnly).font(.largeTitle)
                 }
                 .aspectRatio(contentMode: .fill)
@@ -88,7 +110,7 @@ struct ProfileModule: View {
                 .cornerRadius(20)
             }
             VStack(alignment: .leading) {
-                Text(currentUser?.displayName ?? "John Doe")
+                Text(currentUser?.displayName ?? "Guest")
                     .font(.title)
                 Text("Player")
             }
@@ -96,7 +118,7 @@ struct ProfileModule: View {
             
         }.alignmentGuide(.listRowSeparatorLeading) { viewDimensions in return 0 }
         
-        Button(role: .destructive, action: {}) {
+        Button(role: .destructive, action: authService.signOut ) {
             HStack {
                 Spacer()
                 Text("Sign Out")
@@ -109,6 +131,9 @@ struct ProfileModule: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        NavigationStack {
+            SettingsView(_authService: AuthService(), _notificationService: NotificationService())
+        }
+        
     }
 }

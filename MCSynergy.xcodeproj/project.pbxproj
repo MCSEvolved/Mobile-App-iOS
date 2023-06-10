@@ -12,6 +12,7 @@
 		9E17DC712A1BB85300F059F6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17DC702A1BB85300F059F6 /* LoginView.swift */; };
 		9E17DC772A1BE14100F059F6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17DC762A1BE14100F059F6 /* AuthService.swift */; };
 		9E17DC792A1BFD4300F059F6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17DC782A1BFD4300F059F6 /* LoginViewModel.swift */; };
+		9E4DC76B2A248E4B0095D9E1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4DC76A2A248E4B0095D9E1 /* NotificationService.swift */; };
 		9E8B06C02A14F7CA00ADBA65 /* MCSynergyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B06BF2A14F7CA00ADBA65 /* MCSynergyApp.swift */; };
 		9E8B06C42A14F7CB00ADBA65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B06C32A14F7CB00ADBA65 /* Assets.xcassets */; };
 		9E8B06C72A14F7CB00ADBA65 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B06C62A14F7CB00ADBA65 /* Preview Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		9E8B06D52A14F99400ADBA65 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 9E8B06D42A14F99400ADBA65 /* FirebaseMessaging */; };
 		9EAF59542A1F479800BB0CC4 /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAF59532A1F479800BB0CC4 /* NotificationSettings.swift */; };
 		9EAF59572A1F4FD900BB0CC4 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAF59562A1F4FD900BB0CC4 /* NotificationsView.swift */; };
+		9ECC70672A334A10007EE6AF /* FCMTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC70662A334A10007EE6AF /* FCMTokenManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,7 @@
 		9E17DC762A1BE14100F059F6 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		9E17DC782A1BFD4300F059F6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9E17DC7A2A1D672200F059F6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		9E4DC76A2A248E4B0095D9E1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		9E8B06BC2A14F7CA00ADBA65 /* MCSynergy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCSynergy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E8B06BF2A14F7CA00ADBA65 /* MCSynergyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCSynergyApp.swift; sourceTree = "<group>"; };
 		9E8B06C32A14F7CB00ADBA65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		9EAF59522A1E882D00BB0CC4 /* MCSynergy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCSynergy.entitlements; sourceTree = "<group>"; };
 		9EAF59532A1F479800BB0CC4 /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		9EAF59562A1F4FD900BB0CC4 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		9ECC70662A334A10007EE6AF /* FCMTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTokenManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 		9E17DC662A1BB4FC00F059F6 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				9E4DC7692A248E080095D9E1 /* Notification */,
 				9E17DC752A1BE13500F059F6 /* Auth */,
 			);
 			path = Domain;
@@ -113,6 +118,15 @@
 				9E17DC762A1BE14100F059F6 /* AuthService.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		9E4DC7692A248E080095D9E1 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				9E4DC76A2A248E4B0095D9E1 /* NotificationService.swift */,
+				9ECC70662A334A10007EE6AF /* FCMTokenManager.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		9E8B06B32A14F7CA00ADBA65 = {
@@ -245,8 +259,10 @@
 			files = (
 				9E17DC6F2A1BB84900F059F6 /* HomeView.swift in Sources */,
 				9E8B06C02A14F7CA00ADBA65 /* MCSynergyApp.swift in Sources */,
+				9ECC70672A334A10007EE6AF /* FCMTokenManager.swift in Sources */,
 				9EAF59542A1F479800BB0CC4 /* NotificationSettings.swift in Sources */,
 				9E17DC792A1BFD4300F059F6 /* LoginViewModel.swift in Sources */,
+				9E4DC76B2A248E4B0095D9E1 /* NotificationService.swift in Sources */,
 				9E17DC772A1BE14100F059F6 /* AuthService.swift in Sources */,
 				9E17DC712A1BB85300F059F6 /* LoginView.swift in Sources */,
 				9E17DC6D2A1BB83F00F059F6 /* SettingsView.swift in Sources */,
@@ -468,7 +484,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
+				minimumVersion = 10.10.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

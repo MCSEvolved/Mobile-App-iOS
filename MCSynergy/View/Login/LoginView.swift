@@ -11,7 +11,7 @@ import Firebase
 struct LoginView: View {
     
     let authService: AuthService
-    @State var handle: AuthStateDidChangeListenerHandle?
+    
     @Binding var isLoggedIn: Bool
     @ObservedObject var vm: LoginViewModel
     
@@ -48,9 +48,9 @@ struct LoginView: View {
                     .buttonBorderShape(.capsule)
                     .buttonStyle(.borderedProminent)
                     Spacer().frame(height: 15)
-                    Button(action: {}) {
+                    Button(action: vm.signInAsAnonymous) {
                         HStack {
-                            Text("Sign in as Guest")
+                            Text("Continue as Guest")
                         }
                         .frame(width: 300, height: 20)
                     }
@@ -75,15 +75,7 @@ struct LoginView: View {
         .frame(minWidth: 0, maxWidth: .infinity)
         .background(Color("PrimaryBackgroundColor"))
         
-        .onAppear {
-            handle = Auth.auth().addStateDidChangeListener { auth, user in
-                isLoggedIn = authService.isLoggedIn()
-                
-            }
-        }
-        .onDisappear {
-            Auth.auth().removeStateDidChangeListener(handle!)
-        }
+        
         
     }
 }

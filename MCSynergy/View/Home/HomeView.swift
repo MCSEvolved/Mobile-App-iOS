@@ -10,31 +10,13 @@ import Firebase
 
 struct HomeView: View {
     
-    private let authService: AuthService
-    @State var handle: AuthStateDidChangeListenerHandle?
-    @Binding var isLoggedIn: Bool
-    
-    init(authService: AuthService, isLoggedIn: Binding<Bool>) {
-        self.authService = authService
-        self._isLoggedIn = isLoggedIn
+    init() {
     }
     
     
     var body: some View {
         VStack() {
-            Text(Auth.auth().currentUser?.displayName ?? "NoName")
-            Button(action: authService.signOut) {
-                Text("Sign Out")
-            }
-        }
-        .onAppear {
-            handle = Auth.auth().addStateDidChangeListener { auth, user in
-                isLoggedIn = authService.isLoggedIn()
-                
-            }
-        }
-        .onDisappear {
-            Auth.auth().removeStateDidChangeListener(handle!)
+            Text(Auth.auth().currentUser?.displayName ?? "Guest")
         }
     }
 }
