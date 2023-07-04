@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0E860E2A50AE2800041B1D /* AuthResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E860D2A50AE2800041B1D /* AuthResponseModels.swift */; };
+		9E0E86102A51A2C400041B1D /* TrackerHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E860F2A51A2C400041B1D /* TrackerHomeView.swift */; };
+		9E0E86132A51EFFF00041B1D /* TurtleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86122A51EFFF00041B1D /* TurtleComponent.swift */; };
+		9E0E86182A51F10500041B1D /* TurtleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86172A51F10500041B1D /* TurtleModels.swift */; };
+		9E0E861C2A52309E00041B1D /* TurtleDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E861B2A52309E00041B1D /* TurtleDAO.swift */; };
+		9E0E861E2A5230AE00041B1D /* TrackerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E861D2A5230AE00041B1D /* TrackerRepository.swift */; };
+		9E0E86202A5230D100041B1D /* TrackerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E861F2A5230D100041B1D /* TrackerService.swift */; };
+		9E0E86222A5233B300041B1D /* MessageDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86212A5233B300041B1D /* MessageDAO.swift */; };
+		9E0E86242A5233C400041B1D /* LocationDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86232A5233C400041B1D /* LocationDAO.swift */; };
+		9E0E86262A523A3F00041B1D /* MessageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86252A523A3F00041B1D /* MessageModels.swift */; };
+		9E0E86282A523A4900041B1D /* LocationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86272A523A4900041B1D /* LocationModels.swift */; };
+		9E0E862E2A52C40D00041B1D /* Exceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E862D2A52C40D00041B1D /* Exceptions.swift */; };
+		9E0E86302A52CA9800041B1D /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E862F2A52CA9800041B1D /* DAO.swift */; };
+		9E0E86332A52EC5900041B1D /* TurtlesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86322A52EC5900041B1D /* TurtlesHomeView.swift */; };
 		9E17DC6D2A1BB83F00F059F6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17DC6C2A1BB83F00F059F6 /* SettingsView.swift */; };
 		9E17DC6F2A1BB84900F059F6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17DC6E2A1BB84900F059F6 /* HomeView.swift */; };
 		9E17DC712A1BB85300F059F6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17DC702A1BB85300F059F6 /* LoginView.swift */; };
@@ -20,12 +34,30 @@
 		9E8B06D12A14F99400ADBA65 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9E8B06D02A14F99400ADBA65 /* FirebaseAnalytics */; };
 		9E8B06D32A14F99400ADBA65 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9E8B06D22A14F99400ADBA65 /* FirebaseAuth */; };
 		9E8B06D52A14F99400ADBA65 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 9E8B06D42A14F99400ADBA65 /* FirebaseMessaging */; };
+		9EAECC442A5374A9008B9A17 /* SystemDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAECC432A5374A9008B9A17 /* SystemDAO.swift */; };
+		9EAECC462A5374B1008B9A17 /* ServiceDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAECC452A5374B1008B9A17 /* ServiceDAO.swift */; };
+		9EAECC482A53765E008B9A17 /* MessageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAECC472A53765E008B9A17 /* MessageComponent.swift */; };
 		9EAF59542A1F479800BB0CC4 /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAF59532A1F479800BB0CC4 /* NotificationSettings.swift */; };
 		9EAF59572A1F4FD900BB0CC4 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAF59562A1F4FD900BB0CC4 /* NotificationsView.swift */; };
+		9ECB77E52A5456E600BB95EE /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECB77E42A5456E600BB95EE /* DependencyInjection.swift */; };
 		9ECC70672A334A10007EE6AF /* FCMTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC70662A334A10007EE6AF /* FCMTokenManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E0E860D2A50AE2800041B1D /* AuthResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseModels.swift; sourceTree = "<group>"; };
+		9E0E860F2A51A2C400041B1D /* TrackerHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerHomeView.swift; sourceTree = "<group>"; };
+		9E0E86122A51EFFF00041B1D /* TurtleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtleComponent.swift; sourceTree = "<group>"; };
+		9E0E86172A51F10500041B1D /* TurtleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtleModels.swift; sourceTree = "<group>"; };
+		9E0E861B2A52309E00041B1D /* TurtleDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtleDAO.swift; sourceTree = "<group>"; };
+		9E0E861D2A5230AE00041B1D /* TrackerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerRepository.swift; sourceTree = "<group>"; };
+		9E0E861F2A5230D100041B1D /* TrackerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerService.swift; sourceTree = "<group>"; };
+		9E0E86212A5233B300041B1D /* MessageDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDAO.swift; sourceTree = "<group>"; };
+		9E0E86232A5233C400041B1D /* LocationDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDAO.swift; sourceTree = "<group>"; };
+		9E0E86252A523A3F00041B1D /* MessageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModels.swift; sourceTree = "<group>"; };
+		9E0E86272A523A4900041B1D /* LocationModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModels.swift; sourceTree = "<group>"; };
+		9E0E862D2A52C40D00041B1D /* Exceptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exceptions.swift; sourceTree = "<group>"; };
+		9E0E862F2A52CA9800041B1D /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		9E0E86322A52EC5900041B1D /* TurtlesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtlesHomeView.swift; sourceTree = "<group>"; };
 		9E17DC6C2A1BB83F00F059F6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9E17DC6E2A1BB84900F059F6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9E17DC702A1BB85300F059F6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -39,9 +71,13 @@
 		9E8B06C32A14F7CB00ADBA65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E8B06C62A14F7CB00ADBA65 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9E8B06CD2A14F82700ADBA65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9EAECC432A5374A9008B9A17 /* SystemDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDAO.swift; sourceTree = "<group>"; };
+		9EAECC452A5374B1008B9A17 /* ServiceDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDAO.swift; sourceTree = "<group>"; };
+		9EAECC472A53765E008B9A17 /* MessageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComponent.swift; sourceTree = "<group>"; };
 		9EAF59522A1E882D00BB0CC4 /* MCSynergy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MCSynergy.entitlements; sourceTree = "<group>"; };
 		9EAF59532A1F479800BB0CC4 /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		9EAF59562A1F4FD900BB0CC4 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		9ECB77E42A5456E600BB95EE /* DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
 		9ECC70662A334A10007EE6AF /* FCMTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTokenManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,9 +95,100 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E0E860A2A50A98700041B1D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9E0E860B2A50A99400041B1D /* Tracker */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9E0E860B2A50A99400041B1D /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				9E0E86312A52EBE800041B1D /* Turtles */,
+				9E0E86112A51EFE300041B1D /* Components */,
+				9E0E860F2A51A2C400041B1D /* TrackerHomeView.swift */,
+			);
+			path = Tracker;
+			sourceTree = "<group>";
+		};
+		9E0E860C2A50AE0F00041B1D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E0E860D2A50AE2800041B1D /* AuthResponseModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9E0E86112A51EFE300041B1D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9E0E86122A51EFFF00041B1D /* TurtleComponent.swift */,
+				9EAECC472A53765E008B9A17 /* MessageComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9E0E86142A51F0D900041B1D /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				9E0E86162A51F0EB00041B1D /* Models */,
+				9E0E861F2A5230D100041B1D /* TrackerService.swift */,
+			);
+			path = Tracker;
+			sourceTree = "<group>";
+		};
+		9E0E86152A51F0E100041B1D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9E0E86142A51F0D900041B1D /* Tracker */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9E0E86162A51F0EB00041B1D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E0E86172A51F10500041B1D /* TurtleModels.swift */,
+				9E0E86252A523A3F00041B1D /* MessageModels.swift */,
+				9E0E86272A523A4900041B1D /* LocationModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9E0E86192A52307500041B1D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9EAECC422A537491008B9A17 /* MCSApi */,
+				9E0E861A2A52307F00041B1D /* Tracker */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9E0E861A2A52307F00041B1D /* Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				9E0E861B2A52309E00041B1D /* TurtleDAO.swift */,
+				9E0E861D2A5230AE00041B1D /* TrackerRepository.swift */,
+				9E0E86212A5233B300041B1D /* MessageDAO.swift */,
+				9E0E86232A5233C400041B1D /* LocationDAO.swift */,
+			);
+			path = Tracker;
+			sourceTree = "<group>";
+		};
+		9E0E86312A52EBE800041B1D /* Turtles */ = {
+			isa = PBXGroup;
+			children = (
+				9E0E86322A52EC5900041B1D /* TurtlesHomeView.swift */,
+			);
+			path = Turtles;
+			sourceTree = "<group>";
+		};
 		9E17DC652A1BB4F400F059F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9E0E860A2A50A98700041B1D /* Services */,
 				9EAF59552A1F4FC100BB0CC4 /* Notifications */,
 				9E17DC6B2A1BB78800F059F6 /* Settings */,
 				9E17DC692A1BB52E00F059F6 /* Home */,
@@ -73,6 +200,7 @@
 		9E17DC662A1BB4FC00F059F6 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				9E0E86152A51F0E100041B1D /* Services */,
 				9E4DC7692A248E080095D9E1 /* Notification */,
 				9E17DC752A1BE13500F059F6 /* Auth */,
 			);
@@ -82,6 +210,8 @@
 		9E17DC672A1BB50100F059F6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9E0E86192A52307500041B1D /* Services */,
+				9E0E862F2A52CA9800041B1D /* DAO.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -115,6 +245,7 @@
 		9E17DC752A1BE13500F059F6 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				9E0E860C2A50AE0F00041B1D /* Models */,
 				9E17DC762A1BE14100F059F6 /* AuthService.swift */,
 			);
 			path = Auth;
@@ -156,6 +287,8 @@
 				9E17DC652A1BB4F400F059F6 /* View */,
 				9E8B06CD2A14F82700ADBA65 /* GoogleService-Info.plist */,
 				9E8B06BF2A14F7CA00ADBA65 /* MCSynergyApp.swift */,
+				9ECB77E42A5456E600BB95EE /* DependencyInjection.swift */,
+				9E0E862D2A52C40D00041B1D /* Exceptions.swift */,
 				9E8B06C32A14F7CB00ADBA65 /* Assets.xcassets */,
 				9E8B06C52A14F7CB00ADBA65 /* Preview Content */,
 			);
@@ -168,6 +301,15 @@
 				9E8B06C62A14F7CB00ADBA65 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9EAECC422A537491008B9A17 /* MCSApi */ = {
+			isa = PBXGroup;
+			children = (
+				9EAECC432A5374A9008B9A17 /* SystemDAO.swift */,
+				9EAECC452A5374B1008B9A17 /* ServiceDAO.swift */,
+			);
+			path = MCSApi;
 			sourceTree = "<group>";
 		};
 		9EAF59552A1F4FC100BB0CC4 /* Notifications */ = {
@@ -258,15 +400,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E17DC6F2A1BB84900F059F6 /* HomeView.swift in Sources */,
+				9E0E86132A51EFFF00041B1D /* TurtleComponent.swift in Sources */,
+				9E0E86302A52CA9800041B1D /* DAO.swift in Sources */,
+				9EAECC482A53765E008B9A17 /* MessageComponent.swift in Sources */,
 				9E8B06C02A14F7CA00ADBA65 /* MCSynergyApp.swift in Sources */,
+				9E0E861C2A52309E00041B1D /* TurtleDAO.swift in Sources */,
 				9ECC70672A334A10007EE6AF /* FCMTokenManager.swift in Sources */,
+				9E0E861E2A5230AE00041B1D /* TrackerRepository.swift in Sources */,
+				9E0E86222A5233B300041B1D /* MessageDAO.swift in Sources */,
+				9E0E860E2A50AE2800041B1D /* AuthResponseModels.swift in Sources */,
+				9E0E86102A51A2C400041B1D /* TrackerHomeView.swift in Sources */,
 				9EAF59542A1F479800BB0CC4 /* NotificationSettings.swift in Sources */,
 				9E17DC792A1BFD4300F059F6 /* LoginViewModel.swift in Sources */,
+				9E0E86202A5230D100041B1D /* TrackerService.swift in Sources */,
+				9ECB77E52A5456E600BB95EE /* DependencyInjection.swift in Sources */,
 				9E4DC76B2A248E4B0095D9E1 /* NotificationService.swift in Sources */,
+				9E0E86242A5233C400041B1D /* LocationDAO.swift in Sources */,
+				9E0E86332A52EC5900041B1D /* TurtlesHomeView.swift in Sources */,
 				9E17DC772A1BE14100F059F6 /* AuthService.swift in Sources */,
+				9E0E86262A523A3F00041B1D /* MessageModels.swift in Sources */,
 				9E17DC712A1BB85300F059F6 /* LoginView.swift in Sources */,
 				9E17DC6D2A1BB83F00F059F6 /* SettingsView.swift in Sources */,
 				9EAF59572A1F4FD900BB0CC4 /* NotificationsView.swift in Sources */,
+				9E0E86282A523A4900041B1D /* LocationModels.swift in Sources */,
+				9EAECC442A5374A9008B9A17 /* SystemDAO.swift in Sources */,
+				9E0E86182A51F10500041B1D /* TurtleModels.swift in Sources */,
+				9EAECC462A5374B1008B9A17 /* ServiceDAO.swift in Sources */,
+				9E0E862E2A52C40D00041B1D /* Exceptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

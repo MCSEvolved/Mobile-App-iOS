@@ -11,15 +11,22 @@ class LoginViewModel: ObservableObject {
     @Published var loading: Bool = false
     private let authService: AuthService
     
-    init(_authService: AuthService) {
-        self.authService = _authService
+    init() {
+        self.authService = Container.shared.resolveAuthService()
     }
     
     func signInWithMicrosoft() {
         DispatchQueue.main.async {
             self.loading = true
         }
-        authService.signIn() { success in
+        authService.signIn() { success, error in
+            guard error == nil else {
+                print(String(describing: error?.localizedDescription))
+                DispatchQueue.main.async {
+                    self.loading = false
+                }
+                return
+            }
             DispatchQueue.main.async {
                 self.loading = false
             }

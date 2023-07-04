@@ -15,10 +15,10 @@ struct LoginView: View {
     @Binding var isLoggedIn: Bool
     @ObservedObject var vm: LoginViewModel
     
-    init(authService: AuthService, isLoggedIn: Binding<Bool>) {
-        self.authService = authService
-        self.vm = LoginViewModel(_authService: authService)
+    init(isLoggedIn: Binding<Bool>) {
+        self.vm = LoginViewModel()
         self._isLoggedIn = isLoggedIn
+        self.authService = Container.shared.resolveAuthService()
     }
     
     
@@ -83,6 +83,6 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         @State var isLoggedIn = false
-        LoginView(authService: AuthService(), isLoggedIn: $isLoggedIn)
+        LoginView(isLoggedIn: $isLoggedIn)
     }
 }

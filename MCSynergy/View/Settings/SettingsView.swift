@@ -16,13 +16,13 @@ struct SettingsView: View {
     @State var enabled: Bool = false
     var currentUser: User?
     
-    init(_authService: AuthService, _notificationService: NotificationService) {
-        self.notificationService = _notificationService
-        self.authService = _authService
+    init() {
+        self.notificationService = Container.shared.resolveNotificationService()
+        self.authService = Container.shared.resolveAuthService()
         if (auth.currentUser != nil) {
             currentUser = auth.currentUser
         } else {
-            //isLoggedIn = false
+            authService.signOut()
         }
         
         
@@ -33,13 +33,13 @@ struct SettingsView: View {
         NavigationStack {
             VStack() {
                 List {
-                    ProfileModule(currentUser: currentUser, authService: authService)
+                    ProfileModule(currentUser: currentUser)
                         .listRowBackground(Color("SecondaryBackgroundColor"))
                     Section() {
                         
                         
                         NavigationLink{
-                            NotificationSettings(notificationService: notificationService)
+                            NotificationSettings()
                         } label: {
                             Label {
                                 Text("Notifications")
@@ -91,7 +91,7 @@ struct SettingsView: View {
 
 struct ProfileModule: View {
     let currentUser: User?
-    let authService: AuthService
+    let authService: AuthService = Container.shared.resolveAuthService()
     var body: some View {
         HStack {
             AsyncImage(url: currentUser?.photoURL) { image in image
@@ -112,7 +112,7 @@ struct ProfileModule: View {
             VStack(alignment: .leading) {
                 Text(currentUser?.displayName ?? "Guest")
                     .font(.title)
-                Text("Player")
+                Text(String(describing: AuthService.role))
             }
             .padding(.leading, 10)
             
@@ -129,11 +129,11 @@ struct ProfileModule: View {
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            SettingsView(_authService: AuthService(), _notificationService: NotificationService())
-        }
-        
-    }
-}
+//struct SettingsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            SettingsView(_authService: AuthService(), _notificationService: NotificationService())
+//        }
+//        
+//    }
+//}

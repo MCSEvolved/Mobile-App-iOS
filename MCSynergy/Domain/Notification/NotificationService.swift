@@ -30,35 +30,6 @@ class NotificationService {
         }
     }
     
-//    public func subscribe(token: String?) async -> Bool {
-//        return await withCheckedContinuation { continuation in
-//            guard let requestUrl = URL(string:"https://api.mcsynergy.nl/notification/register-device") else {
-//                continuation.resume(returning: false)
-//                return
-//            }
-//            
-//            var request = URLRequest(url: requestUrl)
-//            
-//            request.httpMethod = "POST"
-//            
-//            guard let token = token else {
-//                continuation.resume(returning: false)
-//                return
-//            }
-//            // Create Request body!
-//            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-//            let task = URLSession.shared.dataTask(with: request) {data, _, error in
-//                guard error == nil else {
-//                    print("Error: \(error!.localizedDescription)")
-//                    continuation.resume(returning: false)
-//                    return
-//                }
-//                continuation.resume(returning: true)
-//            }
-//            task.resume()
-//        }
-//    }
-//
     
     public func getStateOfTopic(topic: String) -> Bool {
         let state: Bool? = UserDefaults.standard.bool(forKey: topic)

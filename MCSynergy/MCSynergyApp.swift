@@ -46,7 +46,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
     func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("TOKEN: \(deviceToken)")
         Messaging.messaging().apnsToken = deviceToken
     }
 }
@@ -77,8 +76,8 @@ struct MCSynergyApp: App {
     
     
     init() {
-        self.notificationService = NotificationService()
-        self.authService = AuthService()
+        self.notificationService = Container.shared.resolveNotificationService()
+        self.authService = Container.shared.resolveAuthService()
     }
     
     
@@ -86,12 +85,11 @@ struct MCSynergyApp: App {
     var body: some Scene {
         WindowGroup {
             if (!isLoggedIn) {
-                LoginView(authService: authService, isLoggedIn: $isLoggedIn)
+                LoginView(isLoggedIn: $isLoggedIn)
                     .preferredColorScheme(.dark)
                     .onAppear {
                         handle = Auth.auth().addStateDidChangeListener { auth, user in
                             isLoggedIn = authService.isLoggedIn()
-                            
                         }
                     }
                     .onDisappear {
@@ -103,7 +101,7 @@ struct MCSynergyApp: App {
                 TabView {
                     HomeView()
                         .tabItem {
-                            Label("Home", systemImage: "house")
+                            Label("Services", systemImage: "antenna.radiowaves.left.and.right")
                         }
                         .preferredColorScheme(.dark)
                     
@@ -113,19 +111,28 @@ struct MCSynergyApp: App {
                         }
                         .preferredColorScheme(.dark)
 
-                    SettingsView(_authService: authService, _notificationService: notificationService)
+                    SettingsView()
                         .tabItem {
                             Label("Settings", systemImage: "gear")
                         }
                         .preferredColorScheme(.dark)
                         
+                }.task {
+                    if (isLoggedIn) {
+                        await AuthService.updateRole()
+                        print(AuthService.role)
+                        if (AuthService.role == .Unauthorized) {
+                            authService.signOut()
+                            isLoggedIn = false
+                        }
+                    }
+                    
                 }.onAppear {
                     
                     handle = Auth.auth().addStateDidChangeListener { auth, user in
                         isLoggedIn = authService.isLoggedIn()
                         
                     }
-                    print("FCM TOKEN: \(FCMTokenManager.shared.currentToken ?? "NO TOKEN")")
                     
                     guard let user = Auth.auth().currentUser else {
                         isLoggedIn = false

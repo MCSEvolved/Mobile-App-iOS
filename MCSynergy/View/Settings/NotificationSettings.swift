@@ -11,8 +11,8 @@ struct NotificationSettings: View {
     private let notificationService: NotificationService
     @State var notificationsEnabled: Bool
     
-    init(notificationService: NotificationService) {
-        self.notificationService = notificationService
+    init() {
+        self.notificationService = Container.shared.resolveNotificationService()
         self._notificationsEnabled = State(initialValue: notificationService.isEnabled())
     }
     
@@ -39,30 +39,30 @@ struct NotificationSettings: View {
                     }
                     
                     Section(header:Text("Minecraft Server Status")) {
-                        NotificationSettingItem(notificationService: notificationService, notificationName: "Shut on/off", topic: "mc-server")
+                        NotificationSettingItem(notificationName: "Shut on/off", topic: "mc-server")
                     }
                     
                     Section(header:Text("Service Status")) {
-                        NotificationSettingItem(notificationService: notificationService, notificationName: "Tracker", topic: "service-status_tracker")
-                        NotificationSettingItem(notificationService: notificationService, notificationName: "Storage", topic: "service-status_storage")
-                        NotificationSettingItem(notificationService: notificationService, notificationName: "EmeraldExchange", topic: "service-status_emerald-exchange")
-                        NotificationSettingItem(notificationService: notificationService, notificationName: "ReactorManager", topic: "service-status_reactor-manager")
+                        NotificationSettingItem(notificationName: "Tracker", topic: "service-status_tracker")
+                        NotificationSettingItem(notificationName: "Storage", topic: "service-status_storage")
+                        NotificationSettingItem(notificationName: "EmeraldExchange", topic: "service-status_emerald-exchange")
+                        NotificationSettingItem(notificationName: "ReactorManager", topic: "service-status_reactor-manager")
                     }
                     
                     Section(header:Text("Power Management")) {
-                        NotificationSettingItem(notificationService: notificationService, notificationName: "Power Shortage", topic: "power-management_shortage")
-                        NotificationSettingItem(notificationService: notificationService, notificationName: "Reactor Shut off", topic: "power-management_reactor-shut-off")
+                        NotificationSettingItem(notificationName: "Power Shortage", topic: "power-management_shortage")
+                        NotificationSettingItem(notificationName: "Reactor Shut off", topic: "power-management_reactor-shut-off")
                     }
                     
                     Section(header:Text("Tracker")) {
-                        NotificationSettingItem(notificationService: notificationService, notificationName: "Error Messages", topic: "tracker_error")
-                        NotificationSettingItem(notificationService: notificationService, notificationName: "Warning Messages", topic: "tracker_warning")
-                        NotificationSettingItem(notificationService: notificationService, notificationName: "Out of Fuel", topic: "tracker_out-of-fuel")
+                        NotificationSettingItem(notificationName: "Error Messages", topic: "tracker_error")
+                        NotificationSettingItem(notificationName: "Warning Messages", topic: "tracker_warning")
+                        NotificationSettingItem(notificationName: "Out of Fuel", topic: "tracker_out-of-fuel")
                     }
                     
                     Section(header:Text("Personal")) {
                         //NotificationSettingItem(notificationName: "Personal Messages")
-                        NotificationSettingItem(notificationService: notificationService, notificationName: "Weekly Reports", topic: "user_weekly-report")
+                        NotificationSettingItem(notificationName: "Weekly Reports", topic: "user_weekly-report")
                     }
                     
                 }
@@ -85,8 +85,8 @@ struct NotificationSettingItem: View {
     let topic: String
     @State var isEnabled: Bool
     
-    init(notificationService: NotificationService, notificationName: String, topic: String) {
-        self.notificationService = notificationService
+    init(notificationName: String, topic: String) {
+        self.notificationService = Container.shared.resolveNotificationService()
         self.notificationName = notificationName
         self.topic = topic
         self.isEnabled = notificationService.getStateOfTopic(topic: topic)
