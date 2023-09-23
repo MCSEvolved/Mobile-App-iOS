@@ -19,10 +19,9 @@ class NotificationService {
                 print(error.localizedDescription)
                 completion(granted, error)
             }
-            
+            print("Push perms granted: \(granted)")
             if (granted) {
                 self.notificationsEnabled = true
-                
                 completion(granted, error)
             } else {
                 completion(granted, error)

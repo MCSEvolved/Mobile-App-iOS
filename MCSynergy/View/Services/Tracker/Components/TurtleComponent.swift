@@ -9,12 +9,12 @@ import SwiftUI
 import Foundation
 
 struct TurtleComponent: View {
-    @Binding var turtle: Turtle
+    @State var turtle: Turtle
     @State var timedOut: Bool = true
     @State var fuelFracture: Float = 1.0
     
-    init(turtle: Binding<Turtle>) {
-        self._turtle = turtle
+    init(turtle: Turtle) {
+        self._turtle = State(initialValue: turtle)
     }
     
     var body: some View {

@@ -35,7 +35,7 @@ struct NotificationSettings: View {
                 List {
                     if (!notificationsEnabled) {
                         Text("You didn't give permission for push notifications, go to your phone settings to enable it.")
-                            .listRowBackground(Color("SecondaryBackgroundColor"))
+                            .listRowBackground(Color.secondaryBackgroundColor)
                     }
                     
                     Section(header:Text("Minecraft Server Status")) {
@@ -66,15 +66,18 @@ struct NotificationSettings: View {
                     }
                     
                 }
-                .background(Color("PrimaryBackgroundColor"))
+                .background(Color.primaryBackgroundColor)
                 .scrollContentBackground(.hidden)
                 .disabled(!notificationsEnabled)
-            }.background(Color("PrimaryBackgroundColor"))
+            }.background(Color.primaryBackgroundColor)
         }
         .frame(minWidth: 0, maxWidth: .infinity)
         .navigationTitle("Notifications").navigationBarTitleDisplayMode(.inline)
         //.toolbarBackground(.visible, for: .navigationBar)
-        .background(Color("PrimaryBackgroundColor"))
+        .background(Color.primaryBackgroundColor)
+        .onAppear() {
+            self.notificationsEnabled = notificationService.isEnabled()
+        }
         
     }
 }
@@ -99,7 +102,7 @@ struct NotificationSettingItem: View {
                     notificationService.changeStateOfTopic(topic: topic, state: value)
                 }
         }
-        .listRowBackground(Color("SecondaryBackgroundColor"))
+        .listRowBackground(Color.secondaryBackgroundColor)
         .onAppear {
             self.isEnabled = notificationService.getStateOfTopic(topic: topic)
         }

@@ -29,14 +29,14 @@ struct HomeView: View {
 //                    }
                     
                 }
-                .background(Color("PrimaryBackgroundColor"))
+                .background(Color.primaryBackgroundColor)
                 .scrollContentBackground(.hidden)
             }
-            .background(Color("PrimaryBackgroundColor"))
+            .background(Color.primaryBackgroundColor)
             .navigationTitle("Services")
         }
         .frame(minWidth: 0, maxWidth: .infinity)
-        .background(Color("PrimaryBackgroundColor"))
+        .background(Color.primaryBackgroundColor)
     }
 }
 
@@ -53,12 +53,12 @@ private struct ServiceCard<Content: View>: View {
                     Text(title)
                         .font(.headline)
                     Text(description)
-                        .foregroundStyle(Color(UIColor.secondaryLabel))
+                        .foregroundStyle(Color.secondaryLabel)
                         .font(.body)
                 }
             }
             
-        }.listRowBackground(Color("SecondaryBackgroundColor"))
+        }.listRowBackground(Color.secondaryBackgroundColor)
         
     }
 }

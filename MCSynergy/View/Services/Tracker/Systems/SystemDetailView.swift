@@ -1,16 +1,15 @@
 //
-//  TurtlesHomeView.swift
+//  SystemDetailView.swift
 //  MCSynergy
 //
-//  Created by Josian van Efferen on 03/07/2023.
+//  Created by Josian van Efferen on 23/09/2023.
 //
 
 import SwiftUI
 
-struct TurtlesHomeView: View {
+struct SystemDetailView: View {
     @State private var selectedView = 0
-    //var systems: [String] = ["No System", "Bee Farm", "Trading Hall", "Miner", "Charcoal Farm"]
-    @ObservedObject private var vm: TurtlesHomeViewModel = TurtlesHomeViewModel()
+    @ObservedObject private var vm: SystemDetailViewModel
     
     private func setUISegmentedControlAppearance() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.primaryBackgroundColor
@@ -19,8 +18,8 @@ struct TurtlesHomeView: View {
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.gray], for: .normal)
     }
     
-    
-    init() {
+    init(system: System) {
+        vm = SystemDetailViewModel(system: system)
         setUISegmentedControlAppearance()
     }
     
@@ -33,29 +32,32 @@ struct TurtlesHomeView: View {
                 }.pickerStyle(SegmentedPickerStyle())
                 
                 if ($selectedView.wrappedValue == 0) {
-                    List() {
-                        Section(header: Text("Crashed")) {
-                            ForEach(vm.crashedTurtles) { turtle in
-                                TurtleComponent(turtle: turtle)
-                            }
-                        }
-                        
-                        Section(header: Text("Systems")) {
-                            ForEach(vm.systems) { system in
-                                NavigationLink(destination: SystemDetailView(system: system)) {
-                                    Text(system.displayName)
+                    List {
+                        if (!$vm.crashedTurtles.isEmpty || !$vm.warningTurtles.isEmpty) {
+                            Section(header: Text("Need Attention")) {
+                                ForEach($vm.crashedTurtles) { turtle in
+                                    TurtleComponent(turtle: turtle.wrappedValue)
                                 }
-                                .listRowBackground(Color.secondaryBackgroundColor)
+                                ForEach($vm.warningTurtles) { turtle in
+                                    TurtleComponent(turtle: turtle.wrappedValue)
+                                }
                             }
                         }
+                        if (!$vm.normalTurtles.isEmpty) {
+                            Section(header: Text("Operational")) {
+                               ForEach($vm.normalTurtles) { turtle in
+                                   TurtleComponent(turtle: turtle.wrappedValue)
+                               }
+                           }
+                        }
+                    }
+                    .refreshable {
+                        await vm.fetchTurtles()
                     }
                     .scrollContentBackground(.hidden)
-                    .refreshable {
-                        await vm.fetchCrashedTurtles()
-                        await vm.fetchAllSystems()
-                    }
+                    
                 } else {
-                    MessagesListView(sources: [.Turtle, .Computer])
+                    MessagesListView(sources: [.Turtle, .Computer, .System])
                 }
                 Spacer()
                 
@@ -68,8 +70,12 @@ struct TurtlesHomeView: View {
         .FillMaxSize()
         .background(Color.primaryBackgroundColor)
         .task {
-            await vm.fetchCrashedTurtles()
-            await vm.fetchAllSystems()
+            await vm.fetchTurtles()
         }
+
     }
 }
+
+//#Preview {
+//    SystemDetailView()
+//}

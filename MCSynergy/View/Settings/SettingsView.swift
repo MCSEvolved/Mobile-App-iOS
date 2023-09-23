@@ -34,7 +34,7 @@ struct SettingsView: View {
             VStack() {
                 List {
                     ProfileModule(currentUser: currentUser)
-                        .listRowBackground(Color("SecondaryBackgroundColor"))
+                        .listRowBackground(Color.secondaryBackgroundColor)
                     Section() {
                         
                         
@@ -55,7 +55,7 @@ struct SettingsView: View {
                                     .cornerRadius(10)
                             }
                                 
-                        }.listRowBackground(Color("SecondaryBackgroundColor"))
+                        }.listRowBackground(Color.secondaryBackgroundColor)
                         
                         
                         
@@ -74,18 +74,18 @@ struct SettingsView: View {
                                     .cornerRadius(10)
                             }
                         }
-                        .listRowBackground(Color("SecondaryBackgroundColor"))
+                        .listRowBackground(Color.secondaryBackgroundColor)
                         .disabled(true)
                     }
                 }
-                .background(Color("PrimaryBackgroundColor"))
+                .background(Color.primaryBackgroundColor)
                 .scrollContentBackground(.hidden)
             }
-            .background(Color("PrimaryBackgroundColor"))
+            .background(Color.primaryBackgroundColor)
             .navigationTitle("Settings")
         }
-        .frame(minWidth: 0, maxWidth: .infinity)
-        .background(Color("PrimaryBackgroundColor"))
+        .FillMaxWidth()
+        .background(Color.primaryBackgroundColor)
     }
 }
 
@@ -101,7 +101,7 @@ struct ProfileModule: View {
                 
             } placeholder: {
                 ZStack {
-                    Rectangle().fill(Color("PrimaryBackgroundColor"))
+                    Rectangle().fill(Color.primaryBackgroundColor)
                     Label("Profile Pic Placeholder", systemImage: "person.fill")
                         .labelStyle(.iconOnly).font(.largeTitle)
                 }

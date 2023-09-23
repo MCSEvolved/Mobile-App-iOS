@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 
-struct Turtle: Codable {
+struct Turtle: Codable, Identifiable {
     let id: Int
     let label: String?
     let systemId: Int
@@ -23,9 +23,7 @@ struct Turtle: Codable {
         switch status {
         case "Error":
             return .red
-        case "Manually Terminated":
-            return .orange
-        case "Need Player":
+        case "Manually Terminated", "Need Player", "Stopped", "Rebooting":
             return .orange
         default:
             return .green
@@ -36,10 +34,10 @@ struct Turtle: Codable {
 
 enum ComputerDevice: String, Codable {
     case Turtle = "Turtle"
-    case Advanced_Turtle = "Advanced Turtle"
+    case Advanced_Turtle = "Advanced_Turtle"
     case Computer = "Computer"
-    case Advanced_Computer = "Advanced Computer"
-    case Pocket_Computer = "Pocket Computer"
-    case Advanced_Pocket_Computer = "Advanced Pocket Computer"
+    case Advanced_Computer = "Advanced_Computer"
+    case Pocket_Computer = "Pocket_Computer"
+    case Advanced_Pocket_Computer = "Advanced_Pocket_Computer"
     
 }

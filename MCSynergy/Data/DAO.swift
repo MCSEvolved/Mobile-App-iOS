@@ -19,7 +19,7 @@ class DAO {
             var request: URLRequest = URLRequest(url: requestUrl)
             request.httpMethod = method
             request.setValue("bearer \(token)", forHTTPHeaderField: "Authorization")
-            if (method == "POST") {
+            if (method == "POST" && body != nil) {
                 request.httpBody = body
             }
             
@@ -30,7 +30,7 @@ class DAO {
                     return
                 }
                 let response = response as! HTTPURLResponse
-                guard response.statusCode < 300 else {
+                guard response.statusCode < 299 else {
                     switch response.statusCode {
                     case 400:
                         continuation.resume(throwing: ApiError.badRequest)

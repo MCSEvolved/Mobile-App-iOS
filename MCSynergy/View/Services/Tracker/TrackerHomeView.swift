@@ -20,14 +20,14 @@ struct TrackerHomeView: View {
                     
 
                 }
-                .background(Color("PrimaryBackgroundColor"))
+                .background(Color.primaryBackgroundColor)
                 .scrollContentBackground(.hidden)
             }
-            .background(Color("PrimaryBackgroundColor"))
+            .background(Color.primaryBackgroundColor)
             .navigationTitle("Tracker")
         }
-        .frame(minWidth: 0, maxWidth: .infinity)
-        .background(Color("PrimaryBackgroundColor"))
+        .FillMaxWidth()
+        .background(Color.primaryBackgroundColor)
     }
 }
 
@@ -55,7 +55,7 @@ private struct trackerSection<Content: View>: View {
                     .cornerRadius(10)
             }
                 
-        }.listRowBackground(Color("SecondaryBackgroundColor"))
+        }.listRowBackground(Color.secondaryBackgroundColor)
     }
         
 }

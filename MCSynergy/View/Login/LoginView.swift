@@ -73,7 +73,7 @@ struct LoginView: View {
            
         }
         .frame(minWidth: 0, maxWidth: .infinity)
-        .background(Color("PrimaryBackgroundColor"))
+        .background(Color.primaryBackgroundColor)
         
         
         
