@@ -18,17 +18,17 @@ struct MessageDetailView: View {
                 Text("Message")
                     .foregroundColor(Color.secondaryLabel)
                 Text(message.content)
-                    .FillMaxWidth(alignment: .leading)
+                    .fillMaxWidth(alignment: .leading)
                     .font(.title3)
                     .padding(10)
                     .background(Color.secondaryBackgroundColor)
                     .cornerRadius(15)
             }
-            .FillMaxWidth()
+            .fillMaxWidth()
             
             Spacer().frame(height: 20)
             
-            HStack() {
+            HStack {
                 Spacer()
                 
                 VStack {
@@ -80,14 +80,14 @@ struct MessageDetailView: View {
                 
                 Spacer()
             }
-            .FillMaxWidth(alignment: .leading)
+            .fillMaxWidth(alignment: .leading)
             .background(Color.secondaryBackgroundColor)
             .cornerRadius(15)
             
             
             Spacer()
         }
-        .FillMaxSize()
+        .fillMaxSize()
         .padding(10)
         .background(Color.primaryBackgroundColor)
         
@@ -96,6 +96,13 @@ struct MessageDetailView: View {
 
 struct MessageDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageDetailView(message: Message(id: "1", type: .Error, source: .Computer, content: "This is a very import error and you should probably do something about it. Lorem Ipsum whatever latin stuff", metaData: nil, sourceId: "493", creationTime: 394019392))
+        MessageDetailView(message: Message(
+            id: "1",
+            type: .Error,
+            source: .Computer,
+            content: "This is a very import error and you should probably do something about it. Lorem Ipsum whatever latin stuff",
+            metaData: nil,
+            sourceId: "493",
+            creationTime: 394019392))
     }
 }

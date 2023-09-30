@@ -1,7 +1,4 @@
 //
-//  LoginView.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 22/05/2023.
 //
 
@@ -23,7 +20,7 @@ struct LoginView: View {
     
     
     var body: some View {
-        VStack() {
+        VStack {
             Spacer()
             if (!vm.loading) {
                 VStack {
@@ -62,7 +59,7 @@ struct LoginView: View {
                 
                 
             } else {
-                ProgressView() {
+                ProgressView {
                     Text("Logging in...")
                 }
                 

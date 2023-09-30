@@ -66,7 +66,7 @@ struct Message: Identifiable, Codable {
         let trackerService: TrackerService = Container.shared.resolveTrackerService()
         Task.init {
             do {
-                let displayName: String = try await trackerService.GetDisplayName(source: self.source, sourceId: self.sourceId)
+                let displayName: String = try await trackerService.getDisplayName(source: self.source, sourceId: self.sourceId)
                 return displayName
             } catch {
                 print(String(describing: error))

@@ -1,7 +1,4 @@
 //
-//  MCSynergyApp.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 17/05/2023.
 //
 
@@ -71,6 +68,7 @@ struct MCSynergyApp: App {
     private var notificationService: NotificationService
     @State var isLoggedIn: Bool = false
     @State var handle: AuthStateDidChangeListenerHandle?
+    @State private var wsEnabled: Bool = true
     private var currentUser: User?
     
     
@@ -88,7 +86,7 @@ struct MCSynergyApp: App {
                 LoginView(isLoggedIn: $isLoggedIn)
                     .preferredColorScheme(.dark)
                     .onAppear {
-                        handle = Auth.auth().addStateDidChangeListener { auth, user in
+                        handle = Auth.auth().addStateDidChangeListener { _auth, _user in
                             isLoggedIn = authService.isLoggedIn()
                         }
                     }
@@ -99,37 +97,46 @@ struct MCSynergyApp: App {
                 
             } else {
                 TabView {
-                    HomeView()
-                        .tabItem {
-                            Label("Services", systemImage: "antenna.radiowaves.left.and.right")
-                        }
-                        .preferredColorScheme(.dark)
-                    
-                    NotificationsView()
-                        .tabItem {
-                            Label("Notifications", systemImage: "bell.fill")
-                        }
-                        .preferredColorScheme(.dark)
-
-                    SettingsView()
-                        .tabItem {
-                            Label("Settings", systemImage: "gear")
-                        }
-                        .preferredColorScheme(.dark)
-                        
-                }.task {
+                    NavigationStack {
+                        HomeView()
+                            .preferredColorScheme(.dark)
+                    }
+                    .tabItem {
+                        Label("Services", systemImage: "antenna.radiowaves.left.and.right")
+                    }
+                   
+                    NavigationStack {
+                        NotificationsView()
+                            .preferredColorScheme(.dark)
+                    }
+                    .tabItem {
+                        Label("Notifications", systemImage: "bell.fill")
+                    }
+ 
+                    NavigationStack {
+                        SettingsView()
+                            .preferredColorScheme(.dark)
+                    }
+                    .tabItem {
+                        Label("Settings", systemImage: "gear")
+                    }
+                }
+                .task {
                     if (isLoggedIn) {
                         await AuthService.updateRole()
                         print(AuthService.role)
                         if (AuthService.role == .Unauthorized) {
                             authService.signOut()
                             isLoggedIn = false
+                            return
                         }
+                        
+                        await SignalRClient.shared.configureHubConnection()
                     }
                     
                 }.onAppear {
                     
-                    handle = Auth.auth().addStateDidChangeListener { auth, user in
+                    handle = Auth.auth().addStateDidChangeListener { _auth, _user in
                         isLoggedIn = authService.isLoggedIn()
                         
                     }
@@ -140,7 +147,7 @@ struct MCSynergyApp: App {
                     }
                     
                     if (!user.isAnonymous) {
-                        notificationService.requestPermission() { granted, error in
+                        notificationService.requestPermission { _granted, error in
                             if let error = error {
                                 print(error.localizedDescription)
                             }
@@ -154,4 +161,3 @@ struct MCSynergyApp: App {
         }
     }
 }
-

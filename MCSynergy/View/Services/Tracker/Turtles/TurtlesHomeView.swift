@@ -26,14 +26,14 @@ struct TurtlesHomeView: View {
     
     var body: some View {
         NavigationStack {
-            VStack() {
+            VStack {
                 Picker("Choose view", selection: $selectedView) {
                     Image(systemName: "tortoise.fill").tag(0)
                     Image(systemName: "envelope.fill").tag(1)
                 }.pickerStyle(SegmentedPickerStyle())
                 
                 if ($selectedView.wrappedValue == 0) {
-                    List() {
+                    List {
                         Section(header: Text("Crashed")) {
                             ForEach(vm.crashedTurtles) { turtle in
                                 TurtleComponent(turtle: turtle)
@@ -61,11 +61,11 @@ struct TurtlesHomeView: View {
                 
             }
             .navigationTitle("Turtles").navigationBarTitleDisplayMode(.inline)
-            .FillMaxSize()
+            .fillMaxSize()
             .background(Color.primaryBackgroundColor)
             
         }
-        .FillMaxSize()
+        .fillMaxSize()
         .background(Color.primaryBackgroundColor)
         .task {
             await vm.fetchCrashedTurtles()

@@ -1,7 +1,4 @@
 //
-//  MessagesListViewModel.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 16/09/2023.
 //
 
@@ -19,12 +16,17 @@ class MessagesListViewModel: ObservableObject {
     private var sources: [MessageSource] = []
     private var sourceIds: [String] = []
     private var types: [MessageType] = [.Info, .Warning, .Error]
+    var system: System?
+    private var fetchedSystemComputers: Bool = false
     
     private let trackerService: TrackerService = Container.shared.resolveTrackerService()
     
-    init(sources: [MessageSource] = [], sourceIds: [String] = []) {
+    init(sources: [MessageSource] = [], sourceIds: [String] = [], system: System? = nil) {
         self.sources = sources
         self.sourceIds = sourceIds
+        self.system = system
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(newMessageReceived), name: .newMessage, object: nil)
     }
     
     private func showError(error: Error) {
@@ -34,7 +36,7 @@ class MessagesListViewModel: ObservableObject {
         }
     }
     
-    public func SetTypes(type: String) {
+    public func setTypes(type: String) {
         switch(type) {
         case "All":
             self.types = [.Info, .Warning, .Error]
@@ -54,18 +56,38 @@ class MessagesListViewModel: ObservableObject {
         }
         
         Task.init {
-            await self.FetchMessages(page: 1)
+            await self.fetchMessages(page: 1)
         }
     }
     
-    public func FetchMessages(page: Int, refreshList: Bool = true) async {
+    private func getComputerIdsOfSystem() async throws {
+        guard let system = system else {
+            fetchedSystemComputers = true
+            return
+        }
+        
+        if fetchedSystemComputers {
+            return
+        }
+        
+        let ids: [Int] = try await trackerService.getTurtleIdsBySystem(systemId: system.id)
+        let stringIds: [String] = ids.map { String($0) }
+        
+        sourceIds += stringIds
+        fetchedSystemComputers = true
+        
+
+    }
+    
+    public func fetchMessages(page: Int, refreshList: Bool = true) async {
         do {
-            let messages: [Message] = try await trackerService.GetMessages(page: page, pageSize: self.pageSize, types: self.types, sources: self.sources, sourceIds: self.sourceIds)
+            try await getComputerIdsOfSystem()
+            let messages: [Message] = try await trackerService.getMessages(page: page, pageSize: self.pageSize, types: self.types, sources: self.sources, sourceIds: self.sourceIds)
             DispatchQueue.main.async {
                 if refreshList {
                     self.messages.removeAll()
                 }
-                self.messages = self.messages + messages
+                self.messages += messages
                 self.loadingNextPage = false
             }
             
@@ -76,12 +98,49 @@ class MessagesListViewModel: ObservableObject {
         
     }
     
-    public func MessageHasAppeared(index: Int) {
+    @objc private func newMessageReceived(notification: Notification) {
+        let receivedMessage: Message? = notification.userInfo?["message"] as? Message
+        
+        guard let receivedMessage = receivedMessage else {
+            return
+        }
+        
+        if (!fetchedSystemComputers || loadingNextPage) {
+            return
+        }
+        
+        if (messageBelongsHere(message: receivedMessage)) {
+            DispatchQueue.main.async { [weak self] in
+                self?.messages.insert(receivedMessage, at: 0)
+                self?.messages.removeLast()
+            }
+        }
+        
+        
+    }
+    
+    private func messageBelongsHere(message: Message) -> Bool {
+        if !(sources.isEmpty || sources.contains(message.source)) {
+            return false
+        }
+        
+        if !(sourceIds.isEmpty || sourceIds.contains(message.sourceId)) {
+            return false
+        }
+        
+        if !(types.contains(message.type)) {
+            return false
+        }
+        
+        return true
+    }
+    
+    public func messageHasAppeared(index: Int) {
         if (index > self.messages.count - 5 && !loadingNextPage && self.messages.count >= self.pageSize) {
             self.loadingNextPage = true
             print("loading new page")
             Task.init {
-                await self.FetchMessages(page: (self.messages.count/self.pageSize) + 1, refreshList: false)
+                await self.fetchMessages(page: (self.messages.count/self.pageSize) + 1, refreshList: false)
             }
         }
     }

@@ -1,7 +1,4 @@
 //
-//  LoginViewModel.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 22/05/2023.
 //
 
@@ -19,7 +16,7 @@ class LoginViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.loading = true
         }
-        authService.signIn() { success, error in
+        authService.signIn { _success, error in
             guard error == nil else {
                 print(String(describing: error?.localizedDescription))
                 DispatchQueue.main.async {
@@ -37,7 +34,7 @@ class LoginViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.loading = true
         }
-        authService.signInAsAnonymous() { success in
+        authService.signInAsAnonymous { _success in
             DispatchQueue.main.async {
                 self.loading = false
             }

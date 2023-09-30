@@ -10,7 +10,7 @@ import Foundation
 class DAO {
     let baseUrl: String = "https://api.mcsynergy.nl"
     
-    func Request(method: String, url: String, token: String, body: Data? = nil) async throws -> Data {
+    func request(method: String, url: String, token: String, body: Data? = nil) async throws -> Data {
         return try await withCheckedThrowingContinuation { continuation in
             guard let requestUrl = URL(string: "\(baseUrl)\(url)") else {
                 continuation.resume(throwing: ApiError.urlIsNil)

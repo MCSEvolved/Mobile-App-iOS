@@ -1,7 +1,4 @@
 //
-//  NotificationService.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 29/05/2023.
 //
 
@@ -53,4 +50,3 @@ class NotificationService {
         return notificationsEnabled
     }
 }
-

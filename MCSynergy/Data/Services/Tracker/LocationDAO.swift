@@ -8,12 +8,12 @@
 import Foundation
 
 class LocationDAO: DAO {
-    func GetLocationOfTurtle(id: Int) async throws -> Data {
+    func getLocationOfTurtle(id: Int) async throws -> Data {
         let token = try await AuthService.getToken()
         guard let token = token else {
             throw ApiError.unauthorized
         }
-        let data = try await Request(method: "GET", url: "/tracker/location/get/by-id?computerId=\(id)", token: token)
+        let data = try await request(method: "GET", url: "/tracker/location/get/by-id?computerId=\(id)", token: token)
         return data
     }
 }

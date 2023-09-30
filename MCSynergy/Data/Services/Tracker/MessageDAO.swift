@@ -8,26 +8,26 @@
 import Foundation
 
 class MessageDAO: DAO {
-    func GetAllMessages(page: Int, pageSize: Int) async throws -> Data {
+    func getAllMessages(page: Int, pageSize: Int) async throws -> Data {
         let token = try await AuthService.getToken()
         guard let token = token else {
             throw ApiError.unauthorized
         }
                 
-        let data = try await Request(method: "GET", url: "/tracker/message/get?page=\(page)&pageSize=\(pageSize)", token: token)
+        let data = try await request(method: "GET", url: "/tracker/message/get?page=\(page)&pageSize=\(pageSize)", token: token)
         return data
     }
     
-    func GetAllMessagesBySource(page: Int, pageSize: Int, source: String) async throws -> Data {
+    func getAllMessagesBySource(page: Int, pageSize: Int, source: String) async throws -> Data {
         let token = try await AuthService.getToken()
         guard let token = token else {
             throw ApiError.unauthorized
         }
-        let data = try await Request(method: "GET", url: "/tracker/message/get?page=\(page)&pageSize=\(pageSize)&sources=\(source)", token: token)
+        let data = try await request(method: "GET", url: "/tracker/message/get?page=\(page)&pageSize=\(pageSize)&sources=\(source)", token: token)
         return data
     }
     
-    func GetAllMessagesBySourceIds(page: Int, pageSize: Int, sourceIds: [String]) async throws -> Data {
+    func getAllMessagesBySourceIds(page: Int, pageSize: Int, sourceIds: [String]) async throws -> Data {
         let token = try await AuthService.getToken()
         guard let token = token else {
             throw ApiError.unauthorized
@@ -39,11 +39,11 @@ class MessageDAO: DAO {
             url += "&sourceIds=\(id)"
         }
         
-        let data = try await Request(method: "GET", url: url, token: token)
+        let data = try await request(method: "GET", url: url, token: token)
         return data
     }
     
-    func GetAllMessagesByTypes(page: Int, pageSize: Int, types: [String]) async throws -> Data {
+    func getAllMessagesByTypes(page: Int, pageSize: Int, types: [String]) async throws -> Data {
         let token = try await AuthService.getToken()
         guard let token = token else {
             throw ApiError.unauthorized
@@ -54,13 +54,13 @@ class MessageDAO: DAO {
             url += "&types=\(type)"
         }
         
-        let data = try await Request(method: "GET", url: url, token: token)
+        let data = try await request(method: "GET", url: url, token: token)
         return data
     }
     
     
     
-    func GetMessages(page: Int, pageSize: Int, types: [MessageType] = [], sources: [MessageSource] = [], sourceIds: [String] = []) async throws -> Data {
+    func getMessages(page: Int, pageSize: Int, types: [MessageType] = [], sources: [MessageSource] = [], sourceIds: [String] = []) async throws -> Data {
         let token = try await AuthService.getToken()
         guard let token = token else {
             throw ApiError.unauthorized
@@ -79,11 +79,11 @@ class MessageDAO: DAO {
             url += "&sourceIds=\(sourceId)"
         }
         
-        let data = try await Request(method: "GET", url: url, token: token)
+        let data = try await request(method: "GET", url: url, token: token)
         return data
     }
     
-    func GetAmountOfMessages(types: [String] = [], sources: [String] = [], sourceIds: [String] = []) async throws -> Data {
+    func getAmountOfMessages(types: [String] = [], sources: [String] = [], sourceIds: [String] = []) async throws -> Data {
         let token = try await AuthService.getToken()
         guard let token = token else {
             throw ApiError.unauthorized
@@ -119,7 +119,7 @@ class MessageDAO: DAO {
             }
         }
         
-        let data = try await Request(method: "GET", url: url, token: token)
+        let data = try await request(method: "GET", url: url, token: token)
         return data
     }
 }

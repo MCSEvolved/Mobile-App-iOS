@@ -1,7 +1,4 @@
 //
-//  AuthService.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 22/05/2023.
 //
 
@@ -63,8 +60,7 @@ class AuthService {
                     let responseModel: CheckRolesResponse = try JSONDecoder().decode(CheckRolesResponse.self, from: data)
                     continuation.resume(returning: responseModel.shouldRefreshToken)
                     return
-                }
-                catch {
+                } catch {
                     continuation.resume(throwing: AuthException.authServerException(responseCode: 500, error: "Unable to decode response from MCS-Auth-Server"))
                     return
                 }
@@ -96,7 +92,7 @@ class AuthService {
                 return
             }
 
-            Auth.auth().signIn(with: credential) { authResult, error in
+            Auth.auth().signIn(with: credential) { _authResult, error in
                 if (error != nil) {
                     print("ERROR: \(String(describing: error?.localizedDescription))")
                     completion(false, AuthException.signInException(error: error!.localizedDescription))
@@ -106,7 +102,7 @@ class AuthService {
                     do {
                         let shouldRefreshToken: Bool = try await self.checkRoles(idToken: Auth.auth().currentUser!.getIDToken())
                         if (shouldRefreshToken) {
-                            let _ = try await AuthService.getToken(forceRefresh: true)
+                            _ = try await AuthService.getToken(forceRefresh: true)
                         }
                         completion(true, nil)
                         return
@@ -122,7 +118,7 @@ class AuthService {
     }
     
     func signInAsAnonymous(completion: @escaping (Bool) -> Void) {
-        Auth.auth().signInAnonymously {authResult, error in
+        Auth.auth().signInAnonymously { _authResult, error in
             if (error != nil) {
                 print("ERROR: \(String(describing: error?.localizedDescription))")
                 completion(false)
@@ -136,8 +132,7 @@ class AuthService {
     func signOut() {
         do {
             try Auth.auth().signOut()
-        }
-        catch {
+        } catch {
             print(error)
         }
         
@@ -150,7 +145,7 @@ class AuthService {
                 do {
                     let shouldRefresh: Bool = try await self.checkRoles(idToken:Auth.auth().currentUser!.getIDToken())
                     if (shouldRefresh) {
-                        let _ = try await AuthService.getToken(forceRefresh: true)
+                        _ = try await AuthService.getToken(forceRefresh: true)
                     }
                     return isLoggedIn
                 } catch {

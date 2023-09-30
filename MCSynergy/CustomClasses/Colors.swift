@@ -1,7 +1,4 @@
 //
-//  Colors.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 17/09/2023.
 //
 

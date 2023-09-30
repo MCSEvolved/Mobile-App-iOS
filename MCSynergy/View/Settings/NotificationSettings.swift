@@ -1,7 +1,4 @@
 //
-//  NotificationSettings.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 25/05/2023.
 //
 
@@ -30,7 +27,7 @@ struct NotificationSettings: View {
     
     var body: some View {
         NavigationStack {
-            VStack() {
+            VStack {
                 
                 List {
                     if (!notificationsEnabled) {
@@ -75,7 +72,7 @@ struct NotificationSettings: View {
         .navigationTitle("Notifications").navigationBarTitleDisplayMode(.inline)
         //.toolbarBackground(.visible, for: .navigationBar)
         .background(Color.primaryBackgroundColor)
-        .onAppear() {
+        .onAppear {
             self.notificationsEnabled = notificationService.isEnabled()
         }
         
@@ -98,8 +95,8 @@ struct NotificationSettingItem: View {
     var body: some View {
         HStack {
             Toggle(notificationName, isOn: $isEnabled)
-                .onChange(of: isEnabled) { value in
-                    notificationService.changeStateOfTopic(topic: topic, state: value)
+                .onChange(of: isEnabled) { old, new in
+                    notificationService.changeStateOfTopic(topic: topic, state: new)
                 }
         }
         .listRowBackground(Color.secondaryBackgroundColor)

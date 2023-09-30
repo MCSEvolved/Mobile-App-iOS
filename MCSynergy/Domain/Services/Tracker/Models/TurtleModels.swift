@@ -1,7 +1,4 @@
 //
-//  TurtleModel.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 02/07/2023.
 //
 

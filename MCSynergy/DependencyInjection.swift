@@ -1,7 +1,4 @@
 //
-//  DependencyContainer.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 04/07/2023.
 //
 
@@ -20,8 +17,7 @@ class Container {
         return notificationService
     }
     
-    private lazy var trackerService: TrackerService = TrackerService()
     func resolveTrackerService() -> TrackerService {
-        return trackerService
+        return TrackerService.shared
     }
 }

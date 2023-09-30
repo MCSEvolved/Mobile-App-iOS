@@ -1,7 +1,4 @@
 //
-//  SystemDetailViewModel.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 23/09/2023.
 //
 
@@ -11,6 +8,8 @@ class SystemDetailViewModel: ObservableObject {
     @Published var normalTurtles: [Turtle] = []
     @Published var crashedTurtles: [Turtle] = []
     @Published var warningTurtles: [Turtle] = []
+    @Published var isLoading: Bool = true
+    @Published var hasTurtles: Bool = false
     private let trackerService: TrackerService = Container.shared.resolveTrackerService()
     private let system: System
     
@@ -38,6 +37,8 @@ class SystemDetailViewModel: ObservableObject {
                 self?.normalTurtles = _normal
                 self?.crashedTurtles = _crashed
                 self?.warningTurtles = _warning
+                self?.isLoading = false
+                self?.hasTurtles = !_normal.isEmpty || !_warning.isEmpty || !_crashed.isEmpty
             }
         } catch {
             print(error)

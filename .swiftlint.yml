@@ -1,0 +1,27 @@
+disabled_rules:
+    - vertical_whitespace
+    - trailing_whitespace
+    - colon
+    - comment_spacing
+    - control_statement
+    - unused_closure_parameter
+    - redundant_string_enum_value
+    
+    
+force_cast: warning
+identifier_name:
+    validates_start_with_lowercase: warning
+    unallowed_symbols_severity: warning
+    min_length:
+        - 3
+        - 0
+    excluded: ["vm", "i", "x", "y", "z", "id", "_"]
+    allowed_symbols: [_]
+        
+line_length:
+    warning: 200
+    error: 400
+    ignores_urls: true
+    ignores_comments: true
+
+reporter: "xcode"

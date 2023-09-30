@@ -1,14 +1,11 @@
 //
-//  ViewModifiers.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 17/09/2023.
 //
 
 import Foundation
 import SwiftUI
 
-private struct fillMaxWidth: ViewModifier {
+private struct FillMaxWidth: ViewModifier {
     var alignment: Alignment?
     func body(content: Content) -> some View {
         if let alignment = alignment {
@@ -20,7 +17,7 @@ private struct fillMaxWidth: ViewModifier {
     }
 }
 
-private struct fillMaxHeight: ViewModifier {
+private struct FillMaxHeight: ViewModifier {
     var alignment: Alignment?
     func body(content: Content) -> some View {
         if let alignment = alignment {
@@ -31,7 +28,7 @@ private struct fillMaxHeight: ViewModifier {
     }
 }
 
-private struct fillMaxSize: ViewModifier {
+private struct FillMaxSize: ViewModifier {
     var alignment: Alignment?
     func body(content: Content) -> some View {
         if let alignment = alignment {
@@ -43,15 +40,15 @@ private struct fillMaxSize: ViewModifier {
 }
 
 extension View {
-    public func FillMaxWidth(alignment: Alignment? = nil) -> some View {
-        modifier(fillMaxWidth(alignment: alignment))
+    public func fillMaxWidth(alignment: Alignment? = nil) -> some View {
+        modifier(FillMaxWidth(alignment: alignment))
     }
     
-    public func FillMaxHeight(alignment: Alignment? = nil) -> some View {
-        modifier(fillMaxHeight(alignment: alignment))
+    public func fillMaxHeight(alignment: Alignment? = nil) -> some View {
+        modifier(FillMaxHeight(alignment: alignment))
     }
     
-    public func FillMaxSize(alignment: Alignment? = nil) -> some View {
-        modifier(fillMaxSize(alignment: alignment))
+    public func fillMaxSize(alignment: Alignment? = nil) -> some View {
+        modifier(FillMaxSize(alignment: alignment))
     }
 }

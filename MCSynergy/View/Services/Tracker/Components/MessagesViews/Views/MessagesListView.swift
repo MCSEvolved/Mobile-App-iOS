@@ -1,7 +1,4 @@
 //
-//  MessageComponent.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 03/07/2023.
 //
 
@@ -13,8 +10,8 @@ struct MessagesListView: View {
     @State private var selectedType = "All"
     private let sources: [MessageSource]
     private let sourceIds: [String]
-    @State private var liveUpdates: Bool = true
-    @State private var detailMessage: Message? = nil
+    
+    @State private var detailMessage: Message?
     
     private func setUISegmentedControlAppearance() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.primaryBackgroundColor
@@ -26,10 +23,10 @@ struct MessagesListView: View {
     
     @ObservedObject private var vm: MessagesListViewModel
     
-    init(sources: [MessageSource] = [], sourceIds: [String] = []) {
+    init(sources: [MessageSource] = [], sourceIds: [String] = [], system: System? = nil) {
         self.sources = sources
         self.sourceIds = sourceIds
-        self.vm = MessagesListViewModel(sources: sources, sourceIds: sourceIds)
+        self.vm = MessagesListViewModel(sources: sources, sourceIds: sourceIds, system: system)
         setUISegmentedControlAppearance()
     }
    
@@ -52,7 +49,7 @@ struct MessagesListView: View {
                             let message: Message = vm.messages[i]
                             MessageCell(message: message, detailMessage: $detailMessage)
                                 .onAppear {
-                                    vm.MessageHasAppeared(index: i)
+                                    vm.messageHasAppeared(index: i)
                                 }
                         }
                         if (vm.loadingNextPage) {
@@ -61,25 +58,19 @@ struct MessagesListView: View {
                     }
                 }
             }
-            .FillMaxWidth()
+            .fillMaxWidth()
             .background(Color.secondaryBackgroundColor)
             .cornerRadius(10)
             .refreshable {
-                await self.vm.FetchMessages(page: 1)
+                await self.vm.fetchMessages(page: 1)
             }
         }
         .padding(.top, 20)
         .task {
-            await self.vm.FetchMessages(page: 1)
+            await self.vm.fetchMessages(page: 1)
         }
-        .onChange(of: selectedType) { type in
-            vm.SetTypes(type: type)
-        }
-        .toolbar {
-            Toggle(isOn: $liveUpdates) {
-                Image(systemName: liveUpdates ? "wifi" : "wifi.slash")
-            }
-            .toggleStyle(.button)
+        .onChange(of: selectedType) { old, new in
+            vm.setTypes(type: new)
         }
         .alert(vm.error?.localizedDescription ?? "Unknown Error", isPresented: $vm.showError) {
             Button("OK") {}

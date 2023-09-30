@@ -1,7 +1,4 @@
 //
-//  SettingsView.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 22/05/2023.
 //
 
@@ -14,6 +11,7 @@ struct SettingsView: View {
     private let notificationService: NotificationService
     @State var handle: AuthStateDidChangeListenerHandle?
     @State var enabled: Bool = false
+    @State var liveOnData: Bool = true
     var currentUser: User?
     
     init() {
@@ -24,67 +22,83 @@ struct SettingsView: View {
         } else {
             authService.signOut()
         }
-        
-        
     }
     
-    
     var body: some View {
-        NavigationStack {
-            VStack() {
-                List {
-                    ProfileModule(currentUser: currentUser)
-                        .listRowBackground(Color.secondaryBackgroundColor)
-                    Section() {
-                        
-                        
-                        NavigationLink{
-                            NotificationSettings()
-                        } label: {
-                            Label {
-                                Text("Notifications")
-                            } icon: {
-                                Rectangle()
-                                    .fill(.red)
-                                    .frame(width: 30, height: 30, alignment: .center)
-                                    .overlay(
-                                        Image(systemName: "bell.badge.fill")
-                                            .foregroundColor(.white)
-                                            .font(.subheadline)
-                                    )
-                                    .cornerRadius(10)
-                            }
-                                
-                        }.listRowBackground(Color.secondaryBackgroundColor)
-                        
-                        
-                        
-                        Toggle(isOn: $enabled) {
-                            Label {
-                                Text("Monthly Newsletter")
-                            } icon: {
-                                Rectangle()
-                                    .fill(.blue)
-                                    .frame(width: 30, height: 30, alignment: .center)
-                                    .overlay(
-                                        Image(systemName: "envelope.fill")
-                                            .foregroundColor(.white)
-                                            .font(.subheadline)
-                                    )
-                                    .cornerRadius(10)
+        VStack {
+            List {
+                ProfileModule(currentUser: currentUser)
+                    .listRowBackground(Color.secondaryBackgroundColor)
+                Section {
+                    
+                    
+                    NavigationLink {
+                        NotificationSettings()
+                    } label: {
+                        HStack {
+                            Rectangle()
+                                .fill(.red)
+                                .frame(width: 35, height: 35, alignment: .center)
+                                .overlay(
+                                    Image(systemName: "bell.badge.fill")
+                                        .foregroundColor(.white)
+                                        .font(.title3)
+                                )
+                                .cornerRadius(10)
+                            Spacer().frame(width: 15)
+                            Text("Notifications")
+                        }
+                    }.listRowBackground(Color.secondaryBackgroundColor)
+                    
+                    Toggle(isOn: $liveOnData) {
+                        HStack {
+                            Rectangle()
+                                .fill(.blue)
+                                .frame(width: 35, height: 35, alignment: .center)
+                                .overlay(
+                                    Image(systemName: "wifi")
+                                        .foregroundColor(.white)
+                                        .font(.title3)
+                                )
+                                .cornerRadius(10)
+                            Spacer().frame(width: 15)
+                            VStack(alignment: .leading) {
+                                Text("Use Mobile Data")
+                                Text("Use mobile data to get live updates from services, this can significantly increases data usage.")
+                                    .font(.caption)
+                                    .foregroundStyle(Color.secondaryLabel)
+                                    .padding(.trailing, 10)
                             }
                         }
-                        .listRowBackground(Color.secondaryBackgroundColor)
-                        .disabled(true)
                     }
+                    .listRowBackground(Color.secondaryBackgroundColor)
+                    .disabled(true)
+                    
+//                    Toggle(isOn: $enabled) {
+//                        Label {
+//                            Text("Monthly Newsletter")
+//                        } icon: {
+//                            Rectangle()
+//                                .fill(.blue)
+//                                .frame(width: 30, height: 30, alignment: .center)
+//                                .overlay(
+//                                    Image(systemName: "envelope.fill")
+//                                        .foregroundColor(.white)
+//                                        .font(.subheadline)
+//                                )
+//                                .cornerRadius(10)
+//                        }
+//                    }
+//                    .listRowBackground(Color.secondaryBackgroundColor)
+//                    .disabled(true)
                 }
-                .background(Color.primaryBackgroundColor)
-                .scrollContentBackground(.hidden)
             }
             .background(Color.primaryBackgroundColor)
-            .navigationTitle("Settings")
+            .scrollContentBackground(.hidden)
         }
-        .FillMaxWidth()
+        .background(Color.primaryBackgroundColor)
+        .navigationTitle("Settings")
+        .fillMaxWidth()
         .background(Color.primaryBackgroundColor)
     }
 }
@@ -116,7 +130,7 @@ struct ProfileModule: View {
             }
             .padding(.leading, 10)
             
-        }.alignmentGuide(.listRowSeparatorLeading) { viewDimensions in return 0 }
+        }.alignmentGuide(.listRowSeparatorLeading) { _ in return 0 }
         
         Button(role: .destructive, action: authService.signOut ) {
             HStack {
@@ -129,11 +143,11 @@ struct ProfileModule: View {
     }
 }
 
-//struct SettingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationStack {
-//            SettingsView(_authService: AuthService(), _notificationService: NotificationService())
-//        }
-//        
-//    }
-//}
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationStack {
+            SettingsView()
+        }
+        
+    }
+}
