@@ -107,13 +107,13 @@ struct MCSynergyApp: App {
                         Label("Services", systemImage: "antenna.radiowaves.left.and.right")
                     }
                    
-                    NavigationStack {
-                        NotificationsView()
-                            .preferredColorScheme(.dark)
-                    }
-                    .tabItem {
-                        Label("Notifications", systemImage: "bell.fill")
-                    }
+//                    NavigationStack {
+//                        NotificationsView()
+//                            .preferredColorScheme(.dark)
+//                    }
+//                    .tabItem {
+//                        Label("Notifications", systemImage: "bell.fill")
+//                    }
  
                     NavigationStack {
                         SettingsView()

@@ -10,10 +10,10 @@ struct TrackerHomeView: View {
             VStack {
                 List {
                     TrackerSection(title: "Turtles", icon: "tortoise.fill", font: .caption2) { TurtlesHomeView() }
-                    TrackerSection(title: "Systems", icon: "point.3.filled.connected.trianglepath.dotted") { Text("Systems") }
-                    if (AuthService.isAllowed(req: .Player)) {
-                        TrackerSection(title: "Services", icon: "antenna.radiowaves.left.and.right") { Text("Services") }
-                    }
+//                    TrackerSection(title: "Systems", icon: "point.3.filled.connected.trianglepath.dotted") { Text("Systems") }
+//                    if (AuthService.isAllowed(req: .Player)) {
+//                        TrackerSection(title: "Services", icon: "antenna.radiowaves.left.and.right") { Text("Services") }
+//                    }
                     
 
                 }

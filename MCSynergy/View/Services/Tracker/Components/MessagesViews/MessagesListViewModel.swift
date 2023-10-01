@@ -29,6 +29,10 @@ class MessagesListViewModel: ObservableObject {
         NotificationCenter.default.addObserver(self, selector: #selector(newMessageReceived), name: .newMessage, object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .newMessage, object: nil)
+    }
+    
     private func showError(error: Error) {
         DispatchQueue.main.async {
             self.showError = true

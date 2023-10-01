@@ -7,6 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0420DC2AC9764000F6C98E /* TurtleComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0420DB2AC9764000F6C98E /* TurtleComponentViewModel.swift */; };
+		9E0420E52AC98E1200F6C98E /* SystemModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECB77E82A54672E00BB95EE /* SystemModels.swift */; };
+		9E0420E62AC98E1200F6C98E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17DC6E2A1BB84900F059F6 /* HomeView.swift */; };
+		9E0420E72AC98E1200F6C98E /* TurtleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86122A51EFFF00041B1D /* TurtleComponent.swift */; };
+		9E0420E82AC98E1200F6C98E /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E862F2A52CA9800041B1D /* DAO.swift */; };
+		9E0420E92AC98E1200F6C98E /* MessagesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAECC472A53765E008B9A17 /* MessagesListView.swift */; };
+		9E0420EA2AC98E1200F6C98E /* MCSynergyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B06BF2A14F7CA00ADBA65 /* MCSynergyApp.swift */; };
+		9E0420EB2AC98E1200F6C98E /* TurtleDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E861B2A52309E00041B1D /* TurtleDAO.swift */; };
+		9E0420EC2AC98E1200F6C98E /* MessagesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A87412AB60CD200036DA5 /* MessagesListViewModel.swift */; };
+		9E0420ED2AC98E1200F6C98E /* FCMTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC70662A334A10007EE6AF /* FCMTokenManager.swift */; };
+		9E0420EE2AC98E1200F6C98E /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A87462AB75CA100036DA5 /* ViewModifiers.swift */; };
+		9E0420EF2AC98E1200F6C98E /* TrackerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E861D2A5230AE00041B1D /* TrackerRepository.swift */; };
+		9E0420F02AC98E1200F6C98E /* SystemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF9BBA02ABF36F200EC6AED /* SystemDetailView.swift */; };
+		9E0420F12AC98E1200F6C98E /* ServiceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECB77EA2A54674400BB95EE /* ServiceModels.swift */; };
+		9E0420F22AC98E1200F6C98E /* MessageDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86212A5233B300041B1D /* MessageDAO.swift */; };
+		9E0420F32AC98E1200F6C98E /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A87492AB77E0C00036DA5 /* MessageCell.swift */; };
+		9E0420F42AC98E1200F6C98E /* AuthResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E860D2A50AE2800041B1D /* AuthResponseModels.swift */; };
+		9E0420F52AC98E1200F6C98E /* TrackerHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E860F2A51A2C400041B1D /* TrackerHomeView.swift */; };
+		9E0420F62AC98E1200F6C98E /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAF59532A1F479800BB0CC4 /* NotificationSettings.swift */; };
+		9E0420F72AC98E1200F6C98E /* TurtlesHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8D19F22AB9F9F500CD4D05 /* TurtlesHomeViewModel.swift */; };
+		9E0420F82AC98E1200F6C98E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17DC782A1BFD4300F059F6 /* LoginViewModel.swift */; };
+		9E0420F92AC98E1200F6C98E /* TrackerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E861F2A5230D100041B1D /* TrackerService.swift */; };
+		9E0420FA2AC98E1200F6C98E /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECB77E42A5456E600BB95EE /* DependencyInjection.swift */; };
+		9E0420FB2AC98E1200F6C98E /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4DC76A2A248E4B0095D9E1 /* NotificationService.swift */; };
+		9E0420FC2AC98E1200F6C98E /* LocationDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86232A5233C400041B1D /* LocationDAO.swift */; };
+		9E0420FD2AC98E1200F6C98E /* SystemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF9BBA22ABF7B6800EC6AED /* SystemDetailViewModel.swift */; };
+		9E0420FE2AC98E1200F6C98E /* TurtlesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86322A52EC5900041B1D /* TurtlesHomeView.swift */; };
+		9E0420FF2AC98E1200F6C98E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17DC762A1BE14100F059F6 /* AuthService.swift */; };
+		9E0421002AC98E1200F6C98E /* SignalRClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50D0D02AC865CB006D3E06 /* SignalRClient.swift */; };
+		9E0421012AC98E1200F6C98E /* TurtleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA090732AC8CEF100AF3693 /* TurtleDetailView.swift */; };
+		9E0421022AC98E1200F6C98E /* MessageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86252A523A3F00041B1D /* MessageModels.swift */; };
+		9E0421032AC98E1200F6C98E /* TurtleComponentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0420DB2AC9764000F6C98E /* TurtleComponentViewModel.swift */; };
+		9E0421042AC98E1200F6C98E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17DC702A1BB85300F059F6 /* LoginView.swift */; };
+		9E0421052AC98E1200F6C98E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E17DC6C2A1BB83F00F059F6 /* SettingsView.swift */; };
+		9E0421062AC98E1200F6C98E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A87442AB7510A00036DA5 /* Colors.swift */; };
+		9E0421072AC98E1200F6C98E /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAF59562A1F4FD900BB0CC4 /* NotificationsView.swift */; };
+		9E0421082AC98E1200F6C98E /* LocationModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86272A523A4900041B1D /* LocationModels.swift */; };
+		9E0421092AC98E1200F6C98E /* SystemDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAECC432A5374A9008B9A17 /* SystemDAO.swift */; };
+		9E04210A2AC98E1200F6C98E /* TurtleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86172A51F10500041B1D /* TurtleModels.swift */; };
+		9E04210B2AC98E1200F6C98E /* ServiceDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAECC452A5374B1008B9A17 /* ServiceDAO.swift */; };
+		9E04210C2AC98E1200F6C98E /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50D0D22AC8758E006D3E06 /* NotificationNames.swift */; };
+		9E04210D2AC98E1200F6C98E /* Exceptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E862D2A52C40D00041B1D /* Exceptions.swift */; };
+		9E04210E2AC98E1200F6C98E /* MessageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A874B2AB77E9500036DA5 /* MessageDetailView.swift */; };
+		9E0421102AC98E1200F6C98E /* SignalRClient in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0420E22AC98E1200F6C98E /* SignalRClient */; };
+		9E0421112AC98E1200F6C98E /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0420E12AC98E1200F6C98E /* FirebaseMessaging */; };
+		9E0421122AC98E1200F6C98E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0420DE2AC98E1200F6C98E /* FirebaseAnalytics */; };
+		9E0421132AC98E1200F6C98E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9E0420E02AC98E1200F6C98E /* FirebaseAuth */; };
+		9E0421152AC98E1200F6C98E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9EE8F6FD2AC5D95400099797 /* .swiftlint.yml */; };
+		9E0421162AC98E1200F6C98E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B06C62A14F7CB00ADBA65 /* Preview Assets.xcassets */; };
+		9E0421172AC98E1200F6C98E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B06C32A14F7CB00ADBA65 /* Assets.xcassets */; };
+		9E0421182AC98E1200F6C98E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E8F86B12A72F28200A68DA1 /* GoogleService-Info.plist */; };
 		9E0E860E2A50AE2800041B1D /* AuthResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E860D2A50AE2800041B1D /* AuthResponseModels.swift */; };
 		9E0E86102A51A2C400041B1D /* TrackerHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E860F2A51A2C400041B1D /* TrackerHomeView.swift */; };
 		9E0E86132A51EFFF00041B1D /* TurtleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86122A51EFFF00041B1D /* TurtleComponent.swift */; };
@@ -43,6 +94,7 @@
 		9E8B06D52A14F99400ADBA65 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 9E8B06D42A14F99400ADBA65 /* FirebaseMessaging */; };
 		9E8D19F32AB9F9F500CD4D05 /* TurtlesHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8D19F22AB9F9F500CD4D05 /* TurtlesHomeViewModel.swift */; };
 		9E8F86B22A72F28200A68DA1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E8F86B12A72F28200A68DA1 /* GoogleService-Info.plist */; };
+		9EA090742AC8CEF100AF3693 /* TurtleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA090732AC8CEF100AF3693 /* TurtleDetailView.swift */; };
 		9EAECC442A5374A9008B9A17 /* SystemDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAECC432A5374A9008B9A17 /* SystemDAO.swift */; };
 		9EAECC462A5374B1008B9A17 /* ServiceDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAECC452A5374B1008B9A17 /* ServiceDAO.swift */; };
 		9EAECC482A53765E008B9A17 /* MessagesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAECC472A53765E008B9A17 /* MessagesListView.swift */; };
@@ -58,6 +110,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E0420DB2AC9764000F6C98E /* TurtleComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtleComponentViewModel.swift; sourceTree = "<group>"; };
+		9E04211D2AC98E1200F6C98E /* MCSynergy Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MCSynergy Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E04211E2AC98E1200F6C98E /* MCSynergy copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MCSynergy copy-Info.plist"; path = "/Users/josian/Documents/CodingProjects/MCSEvolved/MCSynergy/MCSynergy copy-Info.plist"; sourceTree = "<absolute>"; };
 		9E0E860D2A50AE2800041B1D /* AuthResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseModels.swift; sourceTree = "<group>"; };
 		9E0E860F2A51A2C400041B1D /* TrackerHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerHomeView.swift; sourceTree = "<group>"; };
 		9E0E86122A51EFFF00041B1D /* TurtleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtleComponent.swift; sourceTree = "<group>"; };
@@ -93,6 +148,7 @@
 		9E8B06C62A14F7CB00ADBA65 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9E8D19F22AB9F9F500CD4D05 /* TurtlesHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtlesHomeViewModel.swift; sourceTree = "<group>"; };
 		9E8F86B12A72F28200A68DA1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9EA090732AC8CEF100AF3693 /* TurtleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtleDetailView.swift; sourceTree = "<group>"; };
 		9EAECC432A5374A9008B9A17 /* SystemDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDAO.swift; sourceTree = "<group>"; };
 		9EAECC452A5374B1008B9A17 /* ServiceDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDAO.swift; sourceTree = "<group>"; };
 		9EAECC472A53765E008B9A17 /* MessagesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesListView.swift; sourceTree = "<group>"; };
@@ -109,6 +165,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9E04210F2AC98E1200F6C98E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0421102AC98E1200F6C98E /* SignalRClient in Frameworks */,
+				9E0421112AC98E1200F6C98E /* FirebaseMessaging in Frameworks */,
+				9E0421122AC98E1200F6C98E /* FirebaseAnalytics in Frameworks */,
+				9E0421132AC98E1200F6C98E /* FirebaseAuth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9E8B06B92A14F7CA00ADBA65 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,8 +220,8 @@
 		9E0E86112A51EFE300041B1D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9EA090722AC8CED700AF3693 /* TurtleViews */,
 				9E5A87402AB60CAC00036DA5 /* MessagesViews */,
-				9E0E86122A51EFFF00041B1D /* TurtleComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -329,6 +396,7 @@
 				9E17DC7A2A1D672200F059F6 /* .gitignore */,
 				9E8B06BE2A14F7CA00ADBA65 /* MCSynergy */,
 				9E8B06BD2A14F7CA00ADBA65 /* Products */,
+				9E04211E2AC98E1200F6C98E /* MCSynergy copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -336,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				9E8B06BC2A14F7CA00ADBA65 /* MCSynergy.app */,
+				9E04211D2AC98E1200F6C98E /* MCSynergy Dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -364,6 +433,16 @@
 				9E8B06C62A14F7CB00ADBA65 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9EA090722AC8CED700AF3693 /* TurtleViews */ = {
+			isa = PBXGroup;
+			children = (
+				9E0E86122A51EFFF00041B1D /* TurtleComponent.swift */,
+				9EA090732AC8CEF100AF3693 /* TurtleDetailView.swift */,
+				9E0420DB2AC9764000F6C98E /* TurtleComponentViewModel.swift */,
+			);
+			path = TurtleViews;
 			sourceTree = "<group>";
 		};
 		9EAECC422A537491008B9A17 /* MCSApi */ = {
@@ -412,6 +491,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9E0420DD2AC98E1200F6C98E /* MCSynergy Dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E04211A2AC98E1200F6C98E /* Build configuration list for PBXNativeTarget "MCSynergy Dev" */;
+			buildPhases = (
+				9E0420E42AC98E1200F6C98E /* Sources */,
+				9E04210F2AC98E1200F6C98E /* Frameworks */,
+				9E0421142AC98E1200F6C98E /* Resources */,
+				9E0421192AC98E1200F6C98E /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MCSynergy Dev";
+			packageProductDependencies = (
+				9E0420DE2AC98E1200F6C98E /* FirebaseAnalytics */,
+				9E0420E02AC98E1200F6C98E /* FirebaseAuth */,
+				9E0420E12AC98E1200F6C98E /* FirebaseMessaging */,
+				9E0420E22AC98E1200F6C98E /* SignalRClient */,
+			);
+			productName = MCSynergy;
+			productReference = 9E04211D2AC98E1200F6C98E /* MCSynergy Dev.app */;
+			productType = "com.apple.product-type.application";
+		};
 		9E8B06BB2A14F7CA00ADBA65 /* MCSynergy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E8B06CA2A14F7CB00ADBA65 /* Build configuration list for PBXNativeTarget "MCSynergy" */;
@@ -419,7 +522,6 @@
 				9E8B06B82A14F7CA00ADBA65 /* Sources */,
 				9E8B06B92A14F7CA00ADBA65 /* Frameworks */,
 				9E8B06BA2A14F7CA00ADBA65 /* Resources */,
-				9EE8F6FC2AC5D85F00099797 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -469,11 +571,23 @@
 			projectRoot = "";
 			targets = (
 				9E8B06BB2A14F7CA00ADBA65 /* MCSynergy */,
+				9E0420DD2AC98E1200F6C98E /* MCSynergy Dev */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9E0421142AC98E1200F6C98E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0421152AC98E1200F6C98E /* .swiftlint.yml in Resources */,
+				9E0421162AC98E1200F6C98E /* Preview Assets.xcassets in Resources */,
+				9E0421172AC98E1200F6C98E /* Assets.xcassets in Resources */,
+				9E0421182AC98E1200F6C98E /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9E8B06BA2A14F7CA00ADBA65 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -488,7 +602,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9EE8F6FC2AC5D85F00099797 /* SwiftLint */ = {
+		9E0421192AC98E1200F6C98E /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -509,6 +623,55 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9E0420E42AC98E1200F6C98E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0420E52AC98E1200F6C98E /* SystemModels.swift in Sources */,
+				9E0420E62AC98E1200F6C98E /* HomeView.swift in Sources */,
+				9E0420E72AC98E1200F6C98E /* TurtleComponent.swift in Sources */,
+				9E0420E82AC98E1200F6C98E /* DAO.swift in Sources */,
+				9E0420E92AC98E1200F6C98E /* MessagesListView.swift in Sources */,
+				9E0420EA2AC98E1200F6C98E /* MCSynergyApp.swift in Sources */,
+				9E0420EB2AC98E1200F6C98E /* TurtleDAO.swift in Sources */,
+				9E0420EC2AC98E1200F6C98E /* MessagesListViewModel.swift in Sources */,
+				9E0420ED2AC98E1200F6C98E /* FCMTokenManager.swift in Sources */,
+				9E0420EE2AC98E1200F6C98E /* ViewModifiers.swift in Sources */,
+				9E0420EF2AC98E1200F6C98E /* TrackerRepository.swift in Sources */,
+				9E0420F02AC98E1200F6C98E /* SystemDetailView.swift in Sources */,
+				9E0420F12AC98E1200F6C98E /* ServiceModels.swift in Sources */,
+				9E0420F22AC98E1200F6C98E /* MessageDAO.swift in Sources */,
+				9E0420F32AC98E1200F6C98E /* MessageCell.swift in Sources */,
+				9E0420F42AC98E1200F6C98E /* AuthResponseModels.swift in Sources */,
+				9E0420F52AC98E1200F6C98E /* TrackerHomeView.swift in Sources */,
+				9E0420F62AC98E1200F6C98E /* NotificationSettings.swift in Sources */,
+				9E0420F72AC98E1200F6C98E /* TurtlesHomeViewModel.swift in Sources */,
+				9E0420F82AC98E1200F6C98E /* LoginViewModel.swift in Sources */,
+				9E0420F92AC98E1200F6C98E /* TrackerService.swift in Sources */,
+				9E0420FA2AC98E1200F6C98E /* DependencyInjection.swift in Sources */,
+				9E0420FB2AC98E1200F6C98E /* NotificationService.swift in Sources */,
+				9E0420FC2AC98E1200F6C98E /* LocationDAO.swift in Sources */,
+				9E0420FD2AC98E1200F6C98E /* SystemDetailViewModel.swift in Sources */,
+				9E0420FE2AC98E1200F6C98E /* TurtlesHomeView.swift in Sources */,
+				9E0420FF2AC98E1200F6C98E /* AuthService.swift in Sources */,
+				9E0421002AC98E1200F6C98E /* SignalRClient.swift in Sources */,
+				9E0421012AC98E1200F6C98E /* TurtleDetailView.swift in Sources */,
+				9E0421022AC98E1200F6C98E /* MessageModels.swift in Sources */,
+				9E0421032AC98E1200F6C98E /* TurtleComponentViewModel.swift in Sources */,
+				9E0421042AC98E1200F6C98E /* LoginView.swift in Sources */,
+				9E0421052AC98E1200F6C98E /* SettingsView.swift in Sources */,
+				9E0421062AC98E1200F6C98E /* Colors.swift in Sources */,
+				9E0421072AC98E1200F6C98E /* NotificationsView.swift in Sources */,
+				9E0421082AC98E1200F6C98E /* LocationModels.swift in Sources */,
+				9E0421092AC98E1200F6C98E /* SystemDAO.swift in Sources */,
+				9E04210A2AC98E1200F6C98E /* TurtleModels.swift in Sources */,
+				9E04210B2AC98E1200F6C98E /* ServiceDAO.swift in Sources */,
+				9E04210C2AC98E1200F6C98E /* NotificationNames.swift in Sources */,
+				9E04210D2AC98E1200F6C98E /* Exceptions.swift in Sources */,
+				9E04210E2AC98E1200F6C98E /* MessageDetailView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9E8B06B82A14F7CA00ADBA65 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -541,7 +704,9 @@
 				9E0E86332A52EC5900041B1D /* TurtlesHomeView.swift in Sources */,
 				9E17DC772A1BE14100F059F6 /* AuthService.swift in Sources */,
 				9E50D0D12AC865CB006D3E06 /* SignalRClient.swift in Sources */,
+				9EA090742AC8CEF100AF3693 /* TurtleDetailView.swift in Sources */,
 				9E0E86262A523A3F00041B1D /* MessageModels.swift in Sources */,
+				9E0420DC2AC9764000F6C98E /* TurtleComponentViewModel.swift in Sources */,
 				9E17DC712A1BB85300F059F6 /* LoginView.swift in Sources */,
 				9E17DC6D2A1BB83F00F059F6 /* SettingsView.swift in Sources */,
 				9E5A87452AB7510A00036DA5 /* Colors.swift in Sources */,
@@ -559,6 +724,80 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		9E04211B2AC98E1200F6C98E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MCSynergy/MCSynergy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"MCSynergy/Preview Content\"";
+				DEVELOPMENT_TEAM = CE6JM5XH47;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MCSynergy copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MCSynergy Dev";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = josian.vanefferen.MCSynergy.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9E04211C2AC98E1200F6C98E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MCSynergy/MCSynergy.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_ASSET_PATHS = "\"MCSynergy/Preview Content\"";
+				DEVELOPMENT_TEAM = CE6JM5XH47;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MCSynergy copy-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "MCSynergy Dev";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = josian.vanefferen.MCSynergy.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		9E8B06C82A14F7CB00ADBA65 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -680,7 +919,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCSynergy/MCSynergy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"MCSynergy/Preview Content\"";
 				DEVELOPMENT_TEAM = CE6JM5XH47;
 				ENABLE_PREVIEWS = YES;
@@ -698,12 +937,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = josian.vanefferen.MCSynergy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -714,7 +956,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCSynergy/MCSynergy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"MCSynergy/Preview Content\"";
 				DEVELOPMENT_TEAM = CE6JM5XH47;
 				ENABLE_PREVIEWS = YES;
@@ -732,18 +974,30 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = josian.vanefferen.MCSynergy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9E04211A2AC98E1200F6C98E /* Build configuration list for PBXNativeTarget "MCSynergy Dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E04211B2AC98E1200F6C98E /* Debug */,
+				9E04211C2AC98E1200F6C98E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9E8B06B72A14F7CA00ADBA65 /* Build configuration list for PBXProject "MCSynergy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -765,6 +1019,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9E0420DF2AC98E1200F6C98E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.10.0;
+			};
+		};
+		9E0420E32AC98E1200F6C98E /* XCRemoteSwiftPackageReference "SignalR-Client-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/moozzyk/SignalR-Client-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		9E50D0CD2AC864C1006D3E06 /* XCRemoteSwiftPackageReference "SignalR-Client-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/moozzyk/SignalR-Client-Swift";
@@ -784,6 +1054,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9E0420DE2AC98E1200F6C98E /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E0420DF2AC98E1200F6C98E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		9E0420E02AC98E1200F6C98E /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E0420DF2AC98E1200F6C98E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		9E0420E12AC98E1200F6C98E /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E0420DF2AC98E1200F6C98E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		9E0420E22AC98E1200F6C98E /* SignalRClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E0420E32AC98E1200F6C98E /* XCRemoteSwiftPackageReference "SignalR-Client-Swift" */;
+			productName = SignalRClient;
+		};
 		9E50D0CE2AC864C1006D3E06 /* SignalRClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9E50D0CD2AC864C1006D3E06 /* XCRemoteSwiftPackageReference "SignalR-Client-Swift" */;

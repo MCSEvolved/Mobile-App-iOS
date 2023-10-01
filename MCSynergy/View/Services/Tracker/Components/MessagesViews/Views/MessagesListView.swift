@@ -30,7 +30,7 @@ struct MessagesListView: View {
         self.sourceIds = sourceIds
         self.vm = MessagesListViewModel(sources: sources, sourceIds: sourceIds, system: system)
         setUISegmentedControlAppearance()
-        print("created")
+        print("message list view created")
     }
    
     var body: some View {
@@ -96,8 +96,6 @@ struct MessagesListView: View {
 }
 
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MessagesListView()
-    }
+#Preview {
+    MessagesListView()
 }

@@ -26,6 +26,22 @@ struct Turtle: Codable, Identifiable {
             return .green
         }
     }
+    
+    func getTimeString() -> String {
+        let formatter = DateFormatter()
+        formatter.timeZone = .current
+        formatter.dateFormat = "HH:mm:ss"
+        let date = Date(timeIntervalSince1970: TimeInterval(lastUpdate/1000))
+        return formatter.string(from: date)
+    }
+    
+    func getDateString(format: String = "dd/MM") -> String {
+        let formatter = DateFormatter()
+        formatter.timeZone = .current
+        formatter.dateFormat = format
+        let date = Date(timeIntervalSince1970: TimeInterval(lastUpdate/1000))
+        return formatter.string(from: date)
+    }
 }
 
 
