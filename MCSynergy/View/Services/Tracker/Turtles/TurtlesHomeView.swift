@@ -1,7 +1,4 @@
 //
-//  TurtlesHomeView.swift
-//  MCSynergy
-//
 //  Created by Josian van Efferen on 03/07/2023.
 //
 
@@ -9,8 +6,9 @@ import SwiftUI
 
 struct TurtlesHomeView: View {
     @State private var selectedView = 0
-    //var systems: [String] = ["No System", "Bee Farm", "Trading Hall", "Miner", "Charcoal Farm"]
     @ObservedObject private var vm: TurtlesHomeViewModel = TurtlesHomeViewModel()
+    
+    @State private var enableLiveUpdate: Bool = SignalRClient.shared.isEnabled
     
     private func setUISegmentedControlAppearance() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.primaryBackgroundColor
@@ -53,6 +51,15 @@ struct TurtlesHomeView: View {
                     .refreshable {
                         await vm.fetchCrashedTurtles()
                         await vm.fetchAllSystems()
+                    }
+                    .toolbar {
+                        Toggle(isOn: $enableLiveUpdate) {
+                            Image(systemName: enableLiveUpdate ? "wifi" : "wifi.slash")
+                        }
+                        .toggleStyle(.button)
+                        .onChange(of: enableLiveUpdate) { _, new in
+                            SignalRClient.shared.changeConnectionState(state: new)
+                        }
                     }
                 } else {
                     MessagesListView(sources: [.Turtle, .Computer])

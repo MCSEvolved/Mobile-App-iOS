@@ -11,6 +11,8 @@ struct MessagesListView: View {
     private let sources: [MessageSource]
     private let sourceIds: [String]
     
+    @State private var enableLiveUpdate: Bool = SignalRClient.shared.isEnabled
+    
     @State private var detailMessage: Message?
     
     private func setUISegmentedControlAppearance() {
@@ -28,6 +30,7 @@ struct MessagesListView: View {
         self.sourceIds = sourceIds
         self.vm = MessagesListViewModel(sources: sources, sourceIds: sourceIds, system: system)
         setUISegmentedControlAppearance()
+        print("created")
     }
    
     var body: some View {
@@ -79,6 +82,15 @@ struct MessagesListView: View {
             MessageDetailView(message: message)
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
+        }
+        .toolbar {
+            Toggle(isOn: $enableLiveUpdate) {
+                Image(systemName: enableLiveUpdate ? "wifi" : "wifi.slash")
+            }
+            .toggleStyle(.button)
+            .onChange(of: enableLiveUpdate) { _, new in
+                SignalRClient.shared.changeConnectionState(state: new)
+            }
         }
     }
 }

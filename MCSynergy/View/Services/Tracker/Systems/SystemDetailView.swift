@@ -9,6 +9,8 @@ struct SystemDetailView: View {
     @ObservedObject private var vm: SystemDetailViewModel
     private let system: System
     
+    @State private var enableLiveUpdate: Bool = SignalRClient.shared.isEnabled
+    
     private func setUISegmentedControlAppearance() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.primaryBackgroundColor
         UISegmentedControl.appearance().backgroundColor = UIColor.secondaryBackgroundColor
@@ -55,6 +57,15 @@ struct SystemDetailView: View {
                             await vm.fetchTurtles()
                         }
                         .scrollContentBackground(.hidden)
+                        .toolbar {
+                            Toggle(isOn: $enableLiveUpdate) {
+                                Image(systemName: enableLiveUpdate ? "wifi" : "wifi.slash")
+                            }
+                            .toggleStyle(.button)
+                            .onChange(of: enableLiveUpdate) { _, new in
+                                SignalRClient.shared.changeConnectionState(state: new)
+                            }
+                        }
                         
                     } else {
                         MessagesListView(sources: [.Turtle, .Computer, .System], system: system)

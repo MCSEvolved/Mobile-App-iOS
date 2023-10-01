@@ -31,10 +31,12 @@ class LoginViewModel: ObservableObject {
     }
     
     func signInAsAnonymous() {
-        DispatchQueue.main.async {
-            self.loading = true
-        }
-        authService.signInAsAnonymous { _success in
+        Task.init {
+            DispatchQueue.main.async {
+                self.loading = true
+            }
+            _ = await authService.signInAsAnonymous()
+            
             DispatchQueue.main.async {
                 self.loading = false
             }
