@@ -87,7 +87,9 @@ struct MCSynergyApp: App {
                     .preferredColorScheme(.dark)
                     .onAppear {
                         handle = Auth.auth().addStateDidChangeListener { _auth, _user in
-                            isLoggedIn = authService.isLoggedIn()
+                            Task.init {
+                                isLoggedIn = await authService.isLoggedIn()
+                            }
                         }
                     }
                     .onDisappear {
@@ -137,8 +139,9 @@ struct MCSynergyApp: App {
                 }.onAppear {
                     
                     handle = Auth.auth().addStateDidChangeListener { _auth, _user in
-                        isLoggedIn = authService.isLoggedIn()
-                        
+                        Task.init {
+                            isLoggedIn = await authService.isLoggedIn()
+                        }
                     }
                     
                     guard let user = Auth.auth().currentUser else {
@@ -156,6 +159,7 @@ struct MCSynergyApp: App {
                     
                 }.onDisappear {
                     Auth.auth().removeStateDidChangeListener(handle!)
+                    SignalRClient.shared.changeConnectionState(state: false)
                 }
             }
         }

@@ -58,6 +58,7 @@ class AuthService {
                 }
                 do {
                     let responseModel: CheckRolesResponse = try JSONDecoder().decode(CheckRolesResponse.self, from: data)
+                    print("SHOULD REFRESH: \(responseModel.shouldRefreshToken)")
                     continuation.resume(returning: responseModel.shouldRefreshToken)
                     return
                 } catch {
@@ -117,15 +118,18 @@ class AuthService {
         }
     }
     
-    func signInAsAnonymous(completion: @escaping (Bool) -> Void) {
-        Auth.auth().signInAnonymously { _authResult, error in
-            if (error != nil) {
-                print("ERROR: \(String(describing: error?.localizedDescription))")
-                completion(false)
-                return
+    func signInAsAnonymous() async -> Bool {
+        do {
+            try await Auth.auth().signInAnonymously()
+            let token = try await Auth.auth().currentUser!.getIDToken()
+            let shouldRefreshToken: Bool = try await self.checkRoles(idToken: token)
+            if (shouldRefreshToken) {
+                _ = try await AuthService.getToken(forceRefresh: true)
             }
-            
-            completion(true)
+            return true
+        } catch {
+            print("ERROR: \(String(describing: error.localizedDescription))")
+            return false
         }
     }
     
@@ -138,20 +142,18 @@ class AuthService {
         
     }
     
-    func isLoggedIn() -> Bool {
+    func isLoggedIn() async -> Bool {
         let isLoggedIn: Bool = Auth.auth().currentUser != nil
         if (isLoggedIn) {
-            Task {
-                do {
-                    let shouldRefresh: Bool = try await self.checkRoles(idToken:Auth.auth().currentUser!.getIDToken())
-                    if (shouldRefresh) {
-                        _ = try await AuthService.getToken(forceRefresh: true)
-                    }
-                    return isLoggedIn
-                } catch {
-                    print(error)
-                    return false
+            do {
+                let shouldRefresh: Bool = try await self.checkRoles(idToken:Auth.auth().currentUser!.getIDToken())
+                if (shouldRefresh) {
+                    _ = try await AuthService.getToken(forceRefresh: true)
                 }
+                return isLoggedIn
+            } catch {
+                print(error)
+                return false
             }
         }
         return isLoggedIn
