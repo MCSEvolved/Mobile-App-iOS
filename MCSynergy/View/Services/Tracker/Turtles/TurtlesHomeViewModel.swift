@@ -26,6 +26,7 @@ class TurtlesHomeViewModel: ObservableObject {
             let systems: [System] = try await trackerService.getAllSystems()
             DispatchQueue.main.async { [weak self] in
                 self?.systems = systems
+                self?.systems.insert(System(id: 0, displayName: "No System", description: "Turtles who are not part of a specific system", produces: []), at: 0)
             }
         } catch {
             print(error)
