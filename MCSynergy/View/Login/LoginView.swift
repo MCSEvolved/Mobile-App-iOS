@@ -44,6 +44,23 @@ struct LoginView: View {
                     }
                     .buttonBorderShape(.capsule)
                     .buttonStyle(.borderedProminent)
+                    
+                    Spacer().frame(height: 15)
+                    
+                    Button(action: vm.signInWithApple) {
+                        HStack {
+                            Image(systemName: "apple.logo")
+                                .font(.body)
+                            Text("Sign in with Apple")
+                        }
+                        .frame(width: 300, height: 20)
+                        .foregroundStyle(Color.black)
+                        
+                    }
+                    .buttonBorderShape(.capsule)
+                    .buttonStyle(.borderedProminent)
+                    .tint(.white)
+                    
                     Spacer().frame(height: 15)
                     Button(action: vm.signInAsAnonymous) {
                         HStack {

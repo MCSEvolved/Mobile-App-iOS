@@ -30,6 +30,19 @@ class LoginViewModel: ObservableObject {
         }
     }
     
+    func signInWithApple() {
+        Task.init {
+            DispatchQueue.main.async {
+                self.loading = true
+            }
+            _ = authService.signInWithApple()
+            
+            DispatchQueue.main.async {
+                self.loading = false
+            }
+        }
+    }
+    
     func signInAsAnonymous() {
         Task.init {
             DispatchQueue.main.async {
