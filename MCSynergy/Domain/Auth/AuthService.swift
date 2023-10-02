@@ -5,6 +5,9 @@
 import Foundation
 import Firebase
 import SwiftUI
+import AuthenticationServices
+import CryptoKit
+
 
 enum AuthException: Error {
     case authServerException(responseCode: Int, error: String)
@@ -21,16 +24,126 @@ enum UserRole {
     case Unauthorized
 }
 
+extension AuthService: ASAuthorizationControllerDelegate {
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            UserDefaults.standard.set(appleIDCredential.user, forKey: "appleAuthorizedUserIdKey")
+            
+            // Retrieve the secure nonce generated during Apple sign in
+            guard let nonce = currentNonce else {
+                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+            }
 
-class AuthService {
+            // Retrieve Apple identity token
+            guard let appleIDToken = appleIDCredential.identityToken else {
+                print("Failed to fetch identity token")
+                return
+            }
+
+            // Convert Apple identity token to string
+            guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                print("Failed to decode identity token")
+                return
+            }
+
+            // Initialize a Firebase credential using secure nonce and Apple identity token
+            let firebaseCredential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
+            
+            Auth.auth().signIn(with: firebaseCredential) { _authResult, error in
+                if (error != nil) {
+                    print("1. Apple SignIn Error: \(String(describing: error?.localizedDescription))")
+                    return
+                }
+                Task {
+                    do {
+                        let shouldRefreshToken: Bool = try await self.checkRoles(idToken: Auth.auth().currentUser!.getIDToken())
+                        if (shouldRefreshToken) {
+                            _ = try await AuthService.getToken(forceRefresh: true)
+                        }
+                        return
+                    } catch {
+                        return
+                    }
+
+                }
+                
+            }
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error)
+    }
+    
+    private func performAppleSignIn() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+
+        // Generate nonce for validation after authentication successful
+        self.currentNonce = randomNonceString()
+        // Set the SHA256 hashed nonce to ASAuthorizationAppleIDRequest
+        request.nonce = sha256(currentNonce!)
+
+        // Present Apple authorization form
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        //authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
+    private func randomNonceString(length: Int = 32) -> String {
+        precondition(length > 0)
+        let charset: Array<Character> =
+            Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        var result = ""
+        var remainingLength = length
+        
+        while remainingLength > 0 {
+            let randoms: [UInt8] = (0 ..< 16).map { _ in
+                var random: UInt8 = 0
+                let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+                if errorCode != errSecSuccess {
+                    fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+                }
+                return random
+            }
+            
+            randoms.forEach { random in
+                if remainingLength == 0 {
+                    return
+                }
+                
+                if random < charset.count {
+                    result.append(charset[Int(random)])
+                    remainingLength -= 1
+                }
+            }
+        }
+        
+        return result
+    }
+
+    private func sha256(_ input: String) -> String {
+        let inputData = Data(input.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        let hashString = hashedData.compactMap {
+            return String(format: "%02x", $0)
+        }.joined()
+        
+        return hashString
+    }
+}
+
+
+class AuthService: NSObject {
     private var provider: OAuthProvider?
     private let baseUrl: String = "https://api.mcsynergy.nl"
+    private var currentNonce: String?
     
     static var role: UserRole = .Unauthorized
     
-    init() {
-        
-    }
     
     private func checkRoles(idToken: String) async throws -> Bool {
         return try await withCheckedThrowingContinuation { continuation in
@@ -116,6 +229,10 @@ class AuthService {
                 
             }
         }
+    }
+    
+    func signInWithApple() {
+        performAppleSignIn()
     }
     
     func signInAsAnonymous() async -> Bool {

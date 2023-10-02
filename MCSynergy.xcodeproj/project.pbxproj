@@ -57,7 +57,6 @@
 		9E0421152AC98E1200F6C98E /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9EE8F6FD2AC5D95400099797 /* .swiftlint.yml */; };
 		9E0421162AC98E1200F6C98E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B06C62A14F7CB00ADBA65 /* Preview Assets.xcassets */; };
 		9E0421172AC98E1200F6C98E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E8B06C32A14F7CB00ADBA65 /* Assets.xcassets */; };
-		9E0421182AC98E1200F6C98E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E8F86B12A72F28200A68DA1 /* GoogleService-Info.plist */; };
 		9E0E860E2A50AE2800041B1D /* AuthResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E860D2A50AE2800041B1D /* AuthResponseModels.swift */; };
 		9E0E86102A51A2C400041B1D /* TrackerHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E860F2A51A2C400041B1D /* TrackerHomeView.swift */; };
 		9E0E86132A51EFFF00041B1D /* TurtleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E86122A51EFFF00041B1D /* TurtleComponent.swift */; };
@@ -104,6 +103,7 @@
 		9ECB77E92A54672E00BB95EE /* SystemModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECB77E82A54672E00BB95EE /* SystemModels.swift */; };
 		9ECB77EB2A54674400BB95EE /* ServiceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECB77EA2A54674400BB95EE /* ServiceModels.swift */; };
 		9ECC70672A334A10007EE6AF /* FCMTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC70662A334A10007EE6AF /* FCMTokenManager.swift */; };
+		9ED2160A2ACB269D00862036 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9ED216092ACB269D00862036 /* GoogleService-Info.plist */; };
 		9EE8F6FE2AC5D95400099797 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9EE8F6FD2AC5D95400099797 /* .swiftlint.yml */; };
 		9EF9BBA12ABF36F200EC6AED /* SystemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF9BBA02ABF36F200EC6AED /* SystemDetailView.swift */; };
 		9EF9BBA32ABF7B6800EC6AED /* SystemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF9BBA22ABF7B6800EC6AED /* SystemDetailViewModel.swift */; };
@@ -112,7 +112,6 @@
 /* Begin PBXFileReference section */
 		9E0420DB2AC9764000F6C98E /* TurtleComponentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtleComponentViewModel.swift; sourceTree = "<group>"; };
 		9E04211D2AC98E1200F6C98E /* MCSynergy Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MCSynergy Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9E04211E2AC98E1200F6C98E /* MCSynergy copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MCSynergy copy-Info.plist"; path = "/Users/josian/Documents/CodingProjects/MCSEvolved/MCSynergy/MCSynergy copy-Info.plist"; sourceTree = "<absolute>"; };
 		9E0E860D2A50AE2800041B1D /* AuthResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseModels.swift; sourceTree = "<group>"; };
 		9E0E860F2A51A2C400041B1D /* TrackerHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerHomeView.swift; sourceTree = "<group>"; };
 		9E0E86122A51EFFF00041B1D /* TurtleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurtleComponent.swift; sourceTree = "<group>"; };
@@ -159,6 +158,7 @@
 		9ECB77E82A54672E00BB95EE /* SystemModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemModels.swift; sourceTree = "<group>"; };
 		9ECB77EA2A54674400BB95EE /* ServiceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModels.swift; sourceTree = "<group>"; };
 		9ECC70662A334A10007EE6AF /* FCMTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTokenManager.swift; sourceTree = "<group>"; };
+		9ED216092ACB269D00862036 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9EE8F6FD2AC5D95400099797 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		9EF9BBA02ABF36F200EC6AED /* SystemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDetailView.swift; sourceTree = "<group>"; };
 		9EF9BBA22ABF7B6800EC6AED /* SystemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDetailViewModel.swift; sourceTree = "<group>"; };
@@ -396,7 +396,6 @@
 				9E17DC7A2A1D672200F059F6 /* .gitignore */,
 				9E8B06BE2A14F7CA00ADBA65 /* MCSynergy */,
 				9E8B06BD2A14F7CA00ADBA65 /* Products */,
-				9E04211E2AC98E1200F6C98E /* MCSynergy copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -414,6 +413,7 @@
 			children = (
 				9E5A87432AB750F600036DA5 /* CustomClasses */,
 				9E8F86B12A72F28200A68DA1 /* GoogleService-Info.plist */,
+				9ED216092ACB269D00862036 /* GoogleService-Info.plist */,
 				9EAF59522A1E882D00BB0CC4 /* MCSynergy.entitlements */,
 				9E17DC722A1BCBD500F059F6 /* Info.plist */,
 				9E17DC672A1BB50100F059F6 /* Data */,
@@ -582,9 +582,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E0421152AC98E1200F6C98E /* .swiftlint.yml in Resources */,
+				9ED2160A2ACB269D00862036 /* GoogleService-Info.plist in Resources */,
 				9E0421162AC98E1200F6C98E /* Preview Assets.xcassets in Resources */,
 				9E0421172AC98E1200F6C98E /* Assets.xcassets in Resources */,
-				9E0421182AC98E1200F6C98E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,7 +731,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCSynergy/MCSynergy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"MCSynergy/Preview Content\"";
 				DEVELOPMENT_TEAM = CE6JM5XH47;
 				ENABLE_PREVIEWS = YES;
@@ -749,7 +749,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = josian.vanefferen.MCSynergy.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -768,7 +768,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCSynergy/MCSynergy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"MCSynergy/Preview Content\"";
 				DEVELOPMENT_TEAM = CE6JM5XH47;
 				ENABLE_PREVIEWS = YES;
@@ -786,7 +786,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = josian.vanefferen.MCSynergy.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -919,7 +919,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCSynergy/MCSynergy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"MCSynergy/Preview Content\"";
 				DEVELOPMENT_TEAM = CE6JM5XH47;
 				ENABLE_PREVIEWS = YES;
@@ -937,7 +937,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = josian.vanefferen.MCSynergy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -956,7 +956,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MCSynergy/MCSynergy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"MCSynergy/Preview Content\"";
 				DEVELOPMENT_TEAM = CE6JM5XH47;
 				ENABLE_PREVIEWS = YES;
@@ -974,7 +974,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = josian.vanefferen.MCSynergy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
