@@ -330,4 +330,9 @@ class AuthService: NSObject {
         }
 
     }
+    
+    func deleteUserData() {
+        UserDefaults.standard.set(nil, forKey: "appleAuthorizedUserIdKey")
+        Auth.auth().currentUser?.delete()
+    }
 }

@@ -12,6 +12,7 @@ struct SettingsView: View {
     @State var handle: AuthStateDidChangeListenerHandle?
     @State var enabled: Bool = false
     @State var liveOnData: Bool = true
+    @State var showAccDeleteAlert: Bool = false
     var currentUser: User?
     
     init() {
@@ -74,6 +75,23 @@ struct SettingsView: View {
                     .listRowBackground(Color.secondaryBackgroundColor)
                     .disabled(true)
                     
+                    Button(role: .destructive, action: {showAccDeleteAlert = true}) {
+                        HStack {
+                            Rectangle()
+                                .fill(.red)
+                                .frame(width: 35, height: 35, alignment: .center)
+                                .overlay(
+                                    Image(systemName: "trash.fill")
+                                        .foregroundColor(.white)
+                                        .font(.title3)
+                                )
+                                .cornerRadius(10)
+                            Spacer().frame(width: 15)
+                            Text("Delete Account Data")
+                        }
+                    }
+                    .listRowBackground(Color.secondaryBackgroundColor)
+                    
 //                    Toggle(isOn: $enabled) {
 //                        Label {
 //                            Text("Monthly Newsletter")
@@ -100,6 +118,12 @@ struct SettingsView: View {
         .navigationTitle("Settings")
         .fillMaxWidth()
         .background(Color.primaryBackgroundColor)
+        .alert("Delete Account Confirmation", isPresented: $showAccDeleteAlert, actions: {
+            Button("Confirm Account Deletion", role: .destructive, action: { authService.deleteUserData() })
+            Button("Cancel", role: .cancel, action: {})
+        }, message: {
+            Text("Are you sure that you want to delete your account? This action is permanent and cannot be undone! ")
+        })
     }
 }
 
